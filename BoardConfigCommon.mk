@@ -57,13 +57,20 @@ COMMON_GLOBAL_CFLAGS += -DSTE_HARDWARE
 # Lights
 TARGET_PROVIDES_LIBLIGHTS := true
 
+# Partition flags for CWM/TWRP
+BOARD_HAS_SDCARD_INTERNAL := true
+BOARD_USES_MMCUTILS := true
+BOARD_HAS_NO_MISC_PARTITION := true
+
 # Custom boot
+RECOVERY_NAME := CWM-Kumquat
 TARGET_PROVIDES_INIT_RC := true
 TARGET_RECOVERY_PRE_COMMAND := "touch /cache/recovery/boot;sync;"
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/montblanc-common/custombootimg.mk
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/sony/montblanc-common/releasetools/semc_ota_from_target_files
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/sony/montblanc-common/recovery/recovery-keys.c
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"lucidaconsole_10x18.h\"
+COMMON_GLOBAL_CFLAGS += -DXPERIA_CWM_TOUCH
 
 BOARD_UMS_LUNFILE := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun0/file"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun0/file"
