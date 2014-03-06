@@ -93,15 +93,20 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # Recovery
 TARGET_NO_SEPARATE_RECOVERY := true
-TARGET_RECOVERY_PRE_COMMAND := "/system/bin/touch /cache/recovery/boot; /system/bin/sync;"
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"lucidaconsole_10x18.h\"
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/sony/montblanc-common/recovery/recovery-keys.c
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
 BOARD_HAS_SDCARD_INTERNAL := true
+BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USES_MMCUTILS := true
-
-#CWM Recovery TOUCH (All Rights Reserved By munjeni)
-RECOVERY_NAME := CWM-TOUCH-RECOVERY-XPERIA
-COMMON_GLOBAL_CFLAGS += -DXPERIA_CWM_TOUCH
+COMMON_GLOBAL_CFLAGS += -DXPERIA_TWRP_TOUCH
+TARGET_RECOVERY_INITRC := device/sony/montblanc-common/recovery/init.rc
+TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_INTERNAL_STORAGE_PATH := "/sdcard"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_HAS_NO_RECOVERY_PARTITION := true
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_MAX_BRIGHTNESS := 255
+TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 
 # Bootanimation
 TARGET_BOOTANIMATION_PRELOAD := true
