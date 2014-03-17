@@ -84,7 +84,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_COPY_FILES += \
     device/sony/montblanc-common/config/init.rc:root/init.rc \
     device/sony/montblanc-common/config/fstab.st-ericsson:root/fstab.st-ericsson \
-    device/sony/montblanc-common/config/init.st-ericsson.rc:root/init.st-ericsson.rc \
+    device/sony/montblanc-common/config/init.environ.rc:root/init.environ.rc \
+	device/sony/montblanc-common/config/init.st-ericsson.rc:root/init.st-ericsson.rc \
     device/sony/montblanc-common/config/ueventd.st-ericsson.rc:root/ueventd.st-ericsson.rc
 
 # Recovery bootstrap script
