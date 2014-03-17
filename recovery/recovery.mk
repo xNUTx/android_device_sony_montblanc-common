@@ -1,24 +1,73 @@
-# Recovery resources
-PRODUCT_COPY_FILES += \
-    bootable/recovery/res/images/icon_firmware_error.png:root/res/images/icon_firmware_error.png \
-    bootable/recovery/res/images/icon_firmware_install.png:root/res/images/icon_firmware_install.png \
-    bootable/recovery/res/images/icon_clockwork.png:root/res/images/icon_clockwork.png \
-    bootable/recovery/res/images/icon_error.png:root/res/images/icon_error.png \
-    bootable/recovery/res/images/icon_installing.png:root/res/images/icon_installing.png \
-    bootable/recovery/res/images/icon_installing_overlay01.png:root/res/images/icon_installing_overlay01.png \
-    bootable/recovery/res/images/icon_installing_overlay02.png:root/res/images/icon_installing_overlay02.png \
-    bootable/recovery/res/images/icon_installing_overlay03.png:root/res/images/icon_installing_overlay03.png \
-    bootable/recovery/res/images/icon_installing_overlay04.png:root/res/images/icon_installing_overlay04.png \
-    bootable/recovery/res/images/icon_installing_overlay05.png:root/res/images/icon_installing_overlay05.png \
-    bootable/recovery/res/images/icon_installing_overlay06.png:root/res/images/icon_installing_overlay06.png \
-    bootable/recovery/res/images/icon_installing_overlay07.png:root/res/images/icon_installing_overlay07.png \
-    bootable/recovery/res/images/indeterminate01.png:root/res/images/indeterminate01.png \
-    bootable/recovery/res/images/indeterminate02.png:root/res/images/indeterminate02.png \
-    bootable/recovery/res/images/indeterminate03.png:root/res/images/indeterminate03.png \
-    bootable/recovery/res/images/indeterminate04.png:root/res/images/indeterminate04.png \
-    bootable/recovery/res/images/indeterminate05.png:root/res/images/indeterminate05.png \
-    bootable/recovery/res/images/indeterminate06.png:root/res/images/indeterminate06.png \
-    bootable/recovery/res/images/progress_empty.png:root/res/images/progress_empty.png \
-    bootable/recovery/res/images/progress_fill.png:root/res/images/progress_fill.png \
-    bootable/recovery/res/images/stitch.png:root/res/images/stitch.png
+# for cwm touch only
 
+ifeq ($(TARGET_PRODUCT),full_lotus)
+PRODUCT_COPY_FILES += \
+    device/sony/montblanc-common/recovery/res/images/stitch_go.png:recovery/root/res/images/stitch_go.png \
+    device/sony/montblanc-common/recovery/res/images/a0.png:recovery/root/res/images/a0.png \
+    device/sony/montblanc-common/recovery/res/images/a1.png:recovery/root/res/images/a1.png \
+    device/sony/montblanc-common/recovery/res/images/a2.png:recovery/root/res/images/a2.png \
+    device/sony/montblanc-common/recovery/res/images/a3.png:recovery/root/res/images/a3.png \
+    device/sony/montblanc-common/recovery/res/images/a4.png:recovery/root/res/images/a4.png \
+    device/sony/montblanc-common/recovery/res/images/a5.png:recovery/root/res/images/a5.png \
+    device/sony/montblanc-common/recovery/res/images/a6.png:recovery/root/res/images/a6.png \
+    device/sony/montblanc-common/recovery/res/images/a7.png:recovery/root/res/images/a7.png \
+    device/sony/montblanc-common/recovery/res/images/a8.png:recovery/root/res/images/a8.png \
+    device/sony/montblanc-common/recovery/res/images/a9.png:recovery/root/res/images/a9.png \
+    device/sony/montblanc-common/recovery/res/images/a10.png:recovery/root/res/images/a10.png \
+    device/sony/montblanc-common/recovery/res/images/at.png:recovery/root/res/images/at.png \
+    device/sony/montblanc-common/recovery/res/images/ap.png:recovery/root/res/images/ap.png
+endif
+
+ifeq ($(TARGET_PRODUCT),full_pepper)
+PRODUCT_COPY_FILES += \
+    device/sony/montblanc-common/recovery/res/images/stitch_sola.png:recovery/root/res/images/stitch_sola.png \
+    device/sony/montblanc-common/recovery/res/images/a0.png:recovery/root/res/images/a0.png \
+    device/sony/montblanc-common/recovery/res/images/a1.png:recovery/root/res/images/a1.png \
+    device/sony/montblanc-common/recovery/res/images/a2.png:recovery/root/res/images/a2.png \
+    device/sony/montblanc-common/recovery/res/images/a3.png:recovery/root/res/images/a3.png \
+    device/sony/montblanc-common/recovery/res/images/a4.png:recovery/root/res/images/a4.png \
+    device/sony/montblanc-common/recovery/res/images/a5.png:recovery/root/res/images/a5.png \
+    device/sony/montblanc-common/recovery/res/images/a6.png:recovery/root/res/images/a6.png \
+    device/sony/montblanc-common/recovery/res/images/a7.png:recovery/root/res/images/a7.png \
+    device/sony/montblanc-common/recovery/res/images/a8.png:recovery/root/res/images/a8.png \
+    device/sony/montblanc-common/recovery/res/images/a9.png:recovery/root/res/images/a9.png \
+    device/sony/montblanc-common/recovery/res/images/a10.png:recovery/root/res/images/a10.png \
+    device/sony/montblanc-common/recovery/res/images/at.png:recovery/root/res/images/at.png \
+    device/sony/montblanc-common/recovery/res/images/ap.png:recovery/root/res/images/ap.png
+endif
+
+ifeq ($(TARGET_PRODUCT),full_kumquat)
+PRODUCT_COPY_FILES += \
+    device/sony/montblanc-common/recovery/res/images/stitch_u.png:recovery/root/res/images/stitch_u.png \
+    device/sony/montblanc-common/recovery/res/images/a0.png:recovery/root/res/images/a0.png \
+    device/sony/montblanc-common/recovery/res/images/a1.png:recovery/root/res/images/a1.png \
+    device/sony/montblanc-common/recovery/res/images/a2.png:recovery/root/res/images/a2.png \
+    device/sony/montblanc-common/recovery/res/images/a3.png:recovery/root/res/images/a3.png \
+    device/sony/montblanc-common/recovery/res/images/a4.png:recovery/root/res/images/a4.png \
+    device/sony/montblanc-common/recovery/res/images/a5.png:recovery/root/res/images/a5.png \
+    device/sony/montblanc-common/recovery/res/images/a6.png:recovery/root/res/images/a6.png \
+    device/sony/montblanc-common/recovery/res/images/a7.png:recovery/root/res/images/a7.png \
+    device/sony/montblanc-common/recovery/res/images/a8.png:recovery/root/res/images/a8.png \
+    device/sony/montblanc-common/recovery/res/images/a9.png:recovery/root/res/images/a9.png \
+    device/sony/montblanc-common/recovery/res/images/a10.png:recovery/root/res/images/a10.png \
+    device/sony/montblanc-common/recovery/res/images/at.png:recovery/root/res/images/at.png \
+    device/sony/montblanc-common/recovery/res/images/ap.png:recovery/root/res/images/ap.png
+endif
+
+ifeq ($(TARGET_PRODUCT),full_nypon)
+PRODUCT_COPY_FILES += \
+    device/sony/montblanc-common/recovery/res/images/stitch_p.png:recovery/root/res/images/stitch_p.png \
+    device/sony/montblanc-common/recovery/res/images/a0.png:recovery/root/res/images/a0.png \
+    device/sony/montblanc-common/recovery/res/images/a1.png:recovery/root/res/images/a1.png \
+    device/sony/montblanc-common/recovery/res/images/a2.png:recovery/root/res/images/a2.png \
+    device/sony/montblanc-common/recovery/res/images/a3.png:recovery/root/res/images/a3.png \
+    device/sony/montblanc-common/recovery/res/images/a4.png:recovery/root/res/images/a4.png \
+    device/sony/montblanc-common/recovery/res/images/a5.png:recovery/root/res/images/a5.png \
+    device/sony/montblanc-common/recovery/res/images/a6.png:recovery/root/res/images/a6.png \
+    device/sony/montblanc-common/recovery/res/images/a7.png:recovery/root/res/images/a7.png \
+    device/sony/montblanc-common/recovery/res/images/a8.png:recovery/root/res/images/a8.png \
+    device/sony/montblanc-common/recovery/res/images/a9.png:recovery/root/res/images/a9.png \
+    device/sony/montblanc-common/recovery/res/images/a10.png:recovery/root/res/images/a10.png \
+    device/sony/montblanc-common/recovery/res/images/at.png:recovery/root/res/images/at.png \
+    device/sony/montblanc-common/recovery/res/images/ap.png:recovery/root/res/images/ap.png
+endif
