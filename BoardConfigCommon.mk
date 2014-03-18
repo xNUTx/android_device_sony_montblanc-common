@@ -60,7 +60,7 @@ USE_CAMERA_STUB := true
 
 
 # Graphics
-BOARD_EGL_CFG := device/sony/montblanc-common/config/egl.cfg
+BOARD_EGL_CFG := device/sony/montblanc-common/configs/egl.cfg
 BOARD_EGL_NEEDS_LEGACY_FB := true
 BOARD_HAVE_PIXEL_FORMAT_INFO := true
 USE_OPENGL_RENDERER := true
@@ -88,7 +88,10 @@ TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/sony/montblanc-common/releas
 
 
 # Recovery
+BOARD_HAS_NO_MISC_PARTITION := true
+BOARD_USES_MMCUTILS := true
 COMMON_GLOBAL_CFLAGS += -DXPERIA_CWM_TOUCH
 RECOVERY_NAME := CWM-Montblanc
 RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_PRE_COMMAND := "/system/bin/touch /cache/recovery/boot; /system/bin/sync;"
+TARGET_RECOVERY_FSTAB = device/sony/montblanc-common/configs/root/fstab.st-ericsson
