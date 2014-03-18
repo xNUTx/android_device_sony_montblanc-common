@@ -83,8 +83,11 @@ TARGET_PROVIDES_LIBLIGHTS := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/sony/montblanc-common/recovery/recovery-keys.c
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/montblanc-common/custombootimg.mk
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"lucidaconsole_10x18.h\"
+TARGET_PROVIDES_INIT_RC := true
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/sony/montblanc-common/releasetools/semc_ota_from_target_files
+
+# Recovery
+COMMON_GLOBAL_CFLAGS += -DXPERIA_CWM_TOUCH
 RECOVERY_NAME := CWM-Montblanc
 RECOVERY_FSTAB_VERSION := 2
-TARGET_PROVIDES_INIT_RC := true
 TARGET_RECOVERY_PRE_COMMAND := "/system/bin/touch /cache/recovery/boot; /system/bin/sync;"
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/sony/montblanc-common/releasetools/semc_ota_from_target_files
