@@ -1,6 +1,5 @@
 # Platform
 BOARD_HAS_NO_MISC_PARTITION := true
-BOARD_UMS_LUNFILE := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun0/file"
 TARGET_BOARD_PLATFORM := montblanc
 TARGET_BOOTLOADER_BOARD_NAME := montblanc
 TARGET_NO_BOOTLOADER := true
@@ -60,7 +59,7 @@ USE_CAMERA_STUB := true
 
 
 # Graphics
-BOARD_EGL_CFG := device/sony/montblanc-common/configs/egl.cfg
+BOARD_EGL_CFG := device/sony/montblanc-common/config/egl.cfg
 BOARD_EGL_NEEDS_LEGACY_FB := true
 BOARD_HAVE_PIXEL_FORMAT_INFO := true
 USE_OPENGL_RENDERER := true
@@ -94,4 +93,4 @@ COMMON_GLOBAL_CFLAGS += -DXPERIA_CWM_TOUCH
 RECOVERY_NAME := CWM-Montblanc
 RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_PRE_COMMAND := "/system/bin/touch /cache/recovery/boot; /system/bin/sync;"
-TARGET_RECOVERY_FSTAB = device/sony/montblanc-common/configs/root/fstab.st-ericsson
+TARGET_RECOVERY_FSTAB = device/sony/montblanc-common/config/root/fstab.st-ericsson
