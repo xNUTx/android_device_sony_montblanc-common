@@ -1,3 +1,3 @@
-#!/sbin/sh
-
-rm -f /cache/recovery/boot
+#!/system/bin/sh
+rm -f /cache/recovery/boot;
+sync;
