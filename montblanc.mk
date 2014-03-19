@@ -55,7 +55,7 @@ PRODUCT_COPY_FILES += \
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
-    setup_fs 	
+    setup_fs \
     e2fsck
 
 
@@ -65,7 +65,7 @@ PRODUCT_PACKAGES += \
     hostapd
 
 
-# Light HAL library
+# Lights HAL library
 PRODUCT_PACKAGES += \
    lights.montblanc
 
