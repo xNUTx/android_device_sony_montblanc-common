@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 The Android Open Source Project
+ * Copyright (C) 2014 Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,10 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#include <stdint.h>
+#include <sys/cdefs.h>
+#include <sys/types.h>
 
 /*
  * If the HAL needs to create service threads to handle graphics related
@@ -48,6 +52,74 @@ enum {
     HAL_PIXEL_FORMAT_RGBA_5551          = 6,
     HAL_PIXEL_FORMAT_RGBA_4444          = 7,
 
+/*
+     * sRGB color pixel formats:
+     *
+     * The red, green and blue components are stored in sRGB space, and converted
+     * to linear space when read, using the standard sRGB to linear equation:
+     *
+     * Clinear = Csrgb / 12.92                  for Csrgb <= 0.04045
+     *         = (Csrgb + 0.055 / 1.055)^2.4    for Csrgb >  0.04045
+     *
+     * When written the inverse transformation is performed:
+     *
+     * Csrgb = 12.92 * Clinear                  for Clinear <= 0.0031308
+     *       = 1.055 * Clinear^(1/2.4) - 0.055  for Clinear >  0.0031308
+     *
+     *
+     *  The alpha component, if present, is always stored in linear space and
+     *  is left unmodified when read or written.
+     *
+     */
+    HAL_PIXEL_FORMAT_sRGB_A_8888        = 0xC,
+    HAL_PIXEL_FORMAT_sRGB_X_8888        = 0xD,
+
+ /*
+     * Android Y8 format:
+     *
+     * This format is exposed outside of the HAL to the framework.
+     * The expected gralloc usage flags are SW_* and HW_CAMERA_*,
+     * and no other HW_ flags will be used.
+     *
+     * Y8 is a YUV planar format comprised of a WxH Y plane,
+     * with each pixel being represented by 8 bits.
+     *
+     * It is equivalent to just the Y plane from YV12.
+     *
+     * This format assumes
+     * - an even width
+     * - an even height
+     * - a horizontal stride multiple of 16 pixels
+     * - a vertical stride equal to the height
+     *
+     *   size = stride * height
+     *
+     */
+    HAL_PIXEL_FORMAT_Y8     = 0x20203859,
+    
+    /*
+     * Android Y16 format:
+     *
+     * This format is exposed outside of the HAL to the framework.
+     * The expected gralloc usage flags are SW_* and HW_CAMERA_*,
+     * and no other HW_ flags will be used.
+     *
+     * Y16 is a YUV planar format comprised of a WxH Y plane,
+     * with each pixel being represented by 16 bits.
+     *
+     * It is just like Y8, but has double the bits per pixel (little endian).
+     *
+     * This format assumes
+     * - an even width
+     * - an even height
+     * - a horizontal stride multiple of 16 pixels
+     * - a vertical stride equal to the height
+     * - strides are specified in pixels, not in bytes
+     *
+     *   size = stride * height * 2
+     *
+     */
+    HAL_PIXEL_FORMAT_Y16    = 0x20363159,
     /* 0x8 - 0xFF range unavailable */
 
     /*
@@ -107,7 +179,6 @@ enum {
      * - an even height
      * - a horizontal stride multiple of 16 pixels (32 bytes).
      */
-    HAL_PIXEL_FORMAT_RAW_SENSOR = 0x20,
 
     /* STE: Added Support of YUV42XMBN, required for Copybit CC acceleration */
     HAL_PIXEL_FORMAT_YCBCR42XMBN = 0xE,
@@ -148,6 +219,25 @@ enum {
     HAL_TRANSFORM_ROT_180   = 0x03,
     /* rotate source image 270 degrees clockwise */
     HAL_TRANSFORM_ROT_270   = 0x07,
+};
+
+enum {
+    HAL_PIXEL_FORMAT_RAW_SENSOR = 0x20,
+    HAL_PIXEL_FORMAT_BLOB = 0x21,
+    HAL_PIXEL_FORMAT_IMPLEMENTATION_DEFINED = 0x22,
+    HAL_PIXEL_FORMAT_YCbCr_420_888 = 0x23,
+};
+
+struct android_ycbcr {
+    void *y;
+    void *cb;
+    void *cr;
+    size_t ystride;
+    size_t cstride;
+    size_t chroma_step;
+
+    /** reserved for future use, set to 0 by gralloc's (*lock_ycbcr)() */
+    uint32_t reserved[8];
 };
 
 #ifdef __cplusplus

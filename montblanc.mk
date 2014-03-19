@@ -6,6 +6,8 @@ $(call inherit-product-if-exists, vendor/sony/montblanc-common/montblanc-common-
 
 DEVICE_PACKAGE_OVERLAYS += device/sony/montblanc-common/overlay
 
+TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -106,6 +108,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/sony/montblanc-common/config/gps.conf:system/etc/gps.conf\
     device/sony/montblanc-common/config/cacert.txt:system/etc/suplcert/cacert.txt
+
+# Patched JB cn_binary
+PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/prebuilt/cn_server:system/bin/cn_server
 
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.mem.max_hidden_apps=10
