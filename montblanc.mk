@@ -51,6 +51,9 @@ PRODUCT_COPY_FILES += \
     device/sony/montblanc-common/config/10wireless:system/etc/init.d/10wireless \
     device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
 
+# fake script needed for recovery
+PRODUCT_COPY_FILES += \
+   device/sony/montblanc-common/config/modelid_cfg.sh:system/bin/modelid_cfg.sh
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
