@@ -1,5 +1,6 @@
 # Inherit from AOSP
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+$(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 
 # Inherit from the common montblanc definitions
@@ -41,6 +42,7 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
 	packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
+
 # Configuration files
 PRODUCT_COPY_FILES += \
     device/sony/montblanc-common/config/media_codecs.xml:system/etc/media_codecs.xml \
@@ -51,9 +53,6 @@ PRODUCT_COPY_FILES += \
     device/sony/montblanc-common/config/10wireless:system/etc/init.d/10wireless \
     device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
 
-# fake script needed for recovery
-PRODUCT_COPY_FILES += \
-   device/sony/montblanc-common/config/modelid_cfg.sh:system/bin/modelid_cfg.sh
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -71,58 +70,53 @@ PRODUCT_PACKAGES += \
 # Lights HAL library
 PRODUCT_PACKAGES += \
    lights.montblanc
+   
+   
+#FM Radio
+# We must adapt Qualcomm FM Radio app
 
-############# Continue from here
 
 # Misc
 PRODUCT_PACKAGES += \
    com.android.future.usb.accessory
+   
 
-
-#Fm Radio
-#PRODUCT_PACKAGES += \
-
-
-# We have enough storage space to hold precise GC data
-PRODUCT_TAGS += dalvik.gc.type-precise
-
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-
-# Custom init / uevent
+# Custom init scripts
 PRODUCT_COPY_FILES += \
     device/sony/montblanc-common/config/init.rc:root/init.rc \
     device/sony/montblanc-common/config/fstab.st-ericsson:root/fstab.st-ericsson \
     device/sony/montblanc-common/config/init.environ.rc:root/init.environ.rc \
-	device/sony/montblanc-common/config/init.st-ericsson.rc:root/init.st-ericsson.rc \
-    device/sony/montblanc-common/config/ueventd.st-ericsson.rc:root/ueventd.st-ericsson.rc
+    device/sony/montblanc-common/config/init.st-ericsson.rc:root/init.st-ericsson.rc \
+    device/sony/montblanc-common/config/ueventd.st-ericsson.rc:root/ueventd.st-ericsson.rc  
+   
 
-# Recovery bootstrap script
+# Recovery bootstrap scripts
 PRODUCT_COPY_FILES += \
     device/sony/montblanc-common/recovery/bootrec:root/sbin/bootrec \
     device/sony/montblanc-common/recovery/usbid_init.sh:root/sbin/usbid_init.sh \
-    device/sony/montblanc-common/recovery/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh
+    device/sony/montblanc-common/recovery/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh  
+    
 
-
-# HW Configs
+# Dummy script needed for recovery
+PRODUCT_COPY_FILES += \
+   device/sony/montblanc-common/config/modelid_cfg.sh:system/bin/modelid_cfg.sh
+    
+    
+# Hardware configuration scripts
 PRODUCT_COPY_FILES += \
     device/sony/montblanc-common/config/omxloaders:system/etc/omxloaders \
     device/sony/montblanc-common/config/ril_config:system/etc/ril_config \
-    device/sony/montblanc-common/config/install_wlan:system/bin/install_wlan \
+    device/sony/montblanc-common/config/install_wlan.sh:system/bin/install_wlan.sh \
     device/sony/montblanc-common/config/ste_modem.sh:system/etc/ste_modem.sh
-
-# GPS
-PRODUCT_COPY_FILES += \
     device/sony/montblanc-common/config/gps.conf:system/etc/gps.conf\
-    device/sony/montblanc-common/config/cacert.txt:system/etc/suplcert/cacert.txt
-
-# Patched JB cn_binary
-PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/prebuilt/cn_server:system/bin/cn_server
-
+   
+   
+# Generic proprieties
+PRODUCT_TAGS += dalvik.gc.type-precise
+PRODUCT_AAPT_CONFIG := mdpi hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_PROPERTY_OVERRIDES += \
-    sys.mem.max_hidden_apps=10
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp \
-    wifi.interface=wlan0
+    sys.mem.max_hidden_apps=5 \
+    wifi.interface=wlan0 \
+    ro.config.low_ram=true
 
