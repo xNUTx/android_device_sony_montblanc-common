@@ -117,6 +117,6 @@ PRODUCT_AAPT_CONFIG := mdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.mem.max_hidden_apps=5 \
-    wifi.interface=wlan0 \
-    ro.config.low_ram=true
+    wifi.interface=wlan0
+
 
