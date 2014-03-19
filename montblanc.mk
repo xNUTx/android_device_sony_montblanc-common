@@ -1,81 +1,84 @@
+# Inherit from AOSP
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+
+# Inherit from the common montblanc definitions
 $(call inherit-product, device/sony/montblanc-common/recovery/recovery.mk)
 
+
+# Inherit from the vendor common montblanc definitions
 $(call inherit-product-if-exists, vendor/sony/montblanc-common/montblanc-common-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/sony/montblanc-common/overlay
 
+# Common montblanc headers
 TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
 
-# Permissions
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/com.stericsson.hardware.fm.receiver.xml:system/etc/permissions/com.stericsson.hardware.fm.receiver.xml \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
-# Configs
+# Common montblanc settings overlays
+DEVICE_PACKAGE_OVERLAYS += device/sony/montblanc-common/overlay
+
+
+# Common montblanc features
 PRODUCT_COPY_FILES += \
-    device/sony/montblanc-common/config/modelid_cfg.sh:system/bin/modelid_cfg.sh \
+	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
+	frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
+	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
+	frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+	frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+	frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
+	frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+	frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+	frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+	frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+	frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+	frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+	frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+	packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
+
+# Configuration files
+PRODUCT_COPY_FILES += \
     device/sony/montblanc-common/config/media_codecs.xml:system/etc/media_codecs.xml \
     device/sony/montblanc-common/config/egl.cfg:system/lib/egl/egl.cfg \
     device/sony/montblanc-common/config/asound.conf:system/etc/asound.conf \
-    device/sony/montblanc-common/config/dbus.conf:system/etc/dbus.conf \
-    device/sony/montblanc-common/config/sysmon.cfg:system/etc/sysmon.cfg \
     device/sony/montblanc-common/config/hostapd.conf:system/etc/wifi/hostapd.conf \
     device/sony/montblanc-common/config/01stesetup:system/etc/init.d/01stesetup \
-    device/sony/montblanc-common/config/10dhcpcd:system/etc/init.d/10dhcpcd \
-    device/sony/montblanc-common/config/10hostapd:system/etc/init.d/10hostapd \
+    device/sony/montblanc-common/config/10wireless:system/etc/init.d/10wireless \
     device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    device/sony/montblanc-common/config/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf
+
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
-    setup_fs
+    setup_fs 	
+    e2fsck
+
 
 # Hostapd
 PRODUCT_PACKAGES += \
     hostapd_cli \
     hostapd
 
-# BT A2DP
-PRODUCT_PACKAGES += \
-    libasound_module_ctl_bluetooth \
-    libasound_module_pcm_bluetooth
-    
-# Unofficial packages that I used from trees outside AOSP
-PRODUCT_PACKAGES += \
-    Stk \
-    Superuser \
-    su
 
-# light package
+# Light HAL library
 PRODUCT_PACKAGES += \
    lights.montblanc
+
+############# Continue from here
 
 # Misc
 PRODUCT_PACKAGES += \
    com.android.future.usb.accessory
 
-#Fmradio
+
+#Fm Radio
 #PRODUCT_PACKAGES += \
-#   FmRadioReceiver
+
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
