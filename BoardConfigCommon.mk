@@ -25,7 +25,6 @@ BOARD_RIL_CLASS := ../../../device/sony/montblanc-common/telephony-common/
 
 
 # Kernel information
-BOARD_FORCE_KERNEL_ADDRESS := 0x00008000
 BOARD_KERNEL_BASE := 0x40200000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000
