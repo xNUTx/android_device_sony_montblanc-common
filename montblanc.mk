@@ -112,8 +112,6 @@ PRODUCT_COPY_FILES += \
    
 # Generic proprieties
 PRODUCT_TAGS += dalvik.gc.type-precise
-PRODUCT_AAPT_CONFIG := mdpi hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.mem.max_hidden_apps=5 \
     wifi.interface=wlan0
