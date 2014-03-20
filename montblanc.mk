@@ -3,7 +3,7 @@ $(call inherit-product, build/target/product/product/languages_full.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 
-# Inherit from the common montblanc definitions
+# Inherit from recovery
 $(call inherit-product, device/sony/montblanc-common/recovery/recovery.mk)
 
 
