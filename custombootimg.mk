@@ -16,7 +16,7 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(recovery_ramdisk) $(INSTA
 	$(hide) cat $(PRODUCT_OUT)/combinedroot.cpio | gzip > $(PRODUCT_OUT)/combinedroot.fs
 	$(hide) rm -rf $(PRODUCT_OUT)/system/bin/recovery
 	$(hide) rm -rf $(PRODUCT_OUT)/boot.img
-	$(hide) python $(LOCAL_PATH)/tools/mkelf.py -o $(PRODUCT_OUT)/kernel.elf $(PRODUCT_OUT)/kernel@0x00008000 $(PRODUCT_OUT)/combinedroot.fs@0x01000000,ramdisk $(LOCAL_PATH)/../$(TARGET_DEVICE)/config/cmdline.txt@cmdline
+	$(hide) python $(LOCAL_PATH)/releasetools/mkelf.py -o $(PRODUCT_OUT)/kernel.elf $(PRODUCT_OUT)/kernel@$(BOARD_KERNEL_ADDRESS) $(PRODUCT_OUT)/combinedroot.fs@$(BOARD_RAMDISK_ADDRESS),ramdisk $(LOCAL_PATH)/../$(TARGET_DEVICE)/config/cmdline.txt@cmdline
 	$(hide) dd if=$(PRODUCT_OUT)/kernel.elf of=$(PRODUCT_OUT)/kernel.elf.bak bs=1 count=44
 	$(hide) printf "\x04" >$(PRODUCT_OUT)/04
 	$(hide) cat $(PRODUCT_OUT)/kernel.elf.bak $(PRODUCT_OUT)/04 > $(PRODUCT_OUT)/kernel.elf.bak2
@@ -36,5 +36,5 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 	$(recovery_ramdisk) \
 	$(recovery_kernel)
 	@echo ----- Making recovery image ------
-	$(hide) $(MKBOOTIMG) -o $@ --kernel $(PRODUCT_OUT)/kernel --ramdisk $(PRODUCT_OUT)/ramdisk-recovery.img --cmdline '$(BOARD_KERNEL_CMDLINE)' --base $(BOARD_KERNEL_BASE) $(BOARD_MKBOOTIMG_ARGS)
+	$(hide) $(MKBOOTIMG) -o $@ --kernel $(PRODUCT_OUT)/kernel --ramdisk $(PRODUCT_OUT)/ramdisk-recovery.img --cmdline '$(cat $(LOCAL_PATH)/../$(TARGET_DEVICE)/config/cmdline.txt)' --base $(BOARD_KERNEL_BASE) $(BOARD_MKBOOTIMG_ARGS)
 	@echo ----- Made recovery image -------- $@
