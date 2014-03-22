@@ -27,6 +27,7 @@ persist.sys.strictmode.visual=false
 # Low power audio
 ste.nmf.autoidle=true
 
+
 # Fast Dormancy
 ste.special_fast_dormancy=false
 
