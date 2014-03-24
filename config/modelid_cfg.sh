@@ -1,3 +1,3 @@
 #!/sbin/sh
 
-# fake script which is needed for recovery
+# Dummy script required  from recovery

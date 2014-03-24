@@ -93,13 +93,8 @@ PRODUCT_COPY_FILES += \
 # Recovery bootstrap scripts
 PRODUCT_COPY_FILES += \
 	device/sony/montblanc-common/recovery/bootrec:root/sbin/bootrec \
-	device/sony/montblanc-common/recovery/usbid_init.sh:root/sbin/usbid_init.sh \
-	device/sony/montblanc-common/recovery/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh  
-    
-
-# Dummy script needed for recovery
-PRODUCT_COPY_FILES += \
-   device/sony/montblanc-common/config/modelid_cfg.sh:system/bin/modelid_cfg.sh
+	device/sony/montblanc-common/recovery/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh \
+	device/sony/montblanc-common/config/modelid_cfg.sh:system/bin/modelid_cfg.sh
     
     
 # Hardware configuration scripts

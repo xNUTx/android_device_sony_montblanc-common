@@ -1,4 +1,4 @@
-# for cwm touch only
+# For CWM touch only
 
 ifeq ($(TARGET_PRODUCT),full_lotus)
 PRODUCT_COPY_FILES += \

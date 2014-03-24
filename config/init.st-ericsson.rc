@@ -632,9 +632,6 @@ service watchdog-kicker /system/xbin/watchdog-kicker -d /dev/watchdog -t 120
     class main
     oneshot
 
-service usbid_init /system/bin/usbid_init.sh
-    class main
-    oneshot
 
 # SEMC: TrimArea Daemon
 service tad /system/bin/tad /dev/block/mmcblk0 9,4,256

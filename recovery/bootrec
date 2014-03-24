@@ -1,18 +1,23 @@
 #!/sbin/sh
 
+
+# Set boot time
 cat /sys/devices/platform/ab8500-i2c.0/ab8500-usb.0/boot_time_device > /sys/devices/platform/ab8500-i2c.0/ab8500-usb.0/boot_time_device
 
+# Set usb device informations
 echo 0 >/sys/class/android_usb/android0/enable
 echo 0FCE >/sys/class/android_usb/android0/idVendor
 echo 617E >/sys/class/android_usb/android0/idProduct
 echo "mass_storage,adb" >/sys/class/android_usb/android0/functions
 echo 1 >/sys/class/android_usb/android0/enable
 
+# Execute device specific bootrec
 if [ -e /sbin/bootrec-device ]
 then
   /sbin/bootrec-device
 fi
 
+# Cleanup and extract ramdisk
 if [ -s /dev/keycheck -o -e /cache/recovery/boot ]
 then
 
@@ -39,6 +44,5 @@ then
 
 fi
 
-# continue booting
-# allways remount system ro
+# Remount /system in read only
 mount -o remount,ro /system
