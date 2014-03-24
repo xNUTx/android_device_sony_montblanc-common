@@ -111,4 +111,4 @@ COMMON_GLOBAL_CFLAGS += -DXPERIA_CWM_TOUCH
 RECOVERY_NAME := CWM-Montblanc
 RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_PRE_COMMAND := "/system/bin/touch /cache/recovery/boot; /system/bin/sync;"
-TARGET_RECOVERY_FSTAB = device/sony/montblanc-common/config/root/fstab.st-ericsson
+TARGET_RECOVERY_FSTAB = device/sony/montblanc-common/config/fstab.st-ericsson
