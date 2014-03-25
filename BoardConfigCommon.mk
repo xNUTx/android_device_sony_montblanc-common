@@ -86,7 +86,6 @@ TARGET_PROVIDES_LIBLIGHTS := true
 
 
 # Custom boot
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/sony/montblanc-common/recovery/recovery-keys.c
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/montblanc-common/custombootimg.mk
 TARGET_PROVIDES_INIT_RC := true
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/sony/montblanc-common/releasetools/semc_ota_from_target_files
@@ -118,6 +117,5 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_INTERNAL_STORAGE_PATH := "/sdcard"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 TW_HAS_NO_RECOVERY_PARTITION := true
-#TW_CUSTOM_BATTERY_PATH := "/sys/class/power_supply"
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
