@@ -105,10 +105,19 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 
 # Recovery
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"lucidaconsole_10x18.h\"
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
+BOARD_HAS_SDCARD_INTERNAL := true
+BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USES_MMCUTILS := true
-COMMON_GLOBAL_CFLAGS += -DXPERIA_CWM_TOUCH
-RECOVERY_NAME := CWM-Montblanc
+COMMON_GLOBAL_CFLAGS += -DXPERIA_TWRP_TOUCH
 RECOVERY_FSTAB_VERSION := 2
-TARGET_RECOVERY_PRE_COMMAND := "/system/bin/touch /cache/recovery/boot; /system/bin/sync;"
+TARGET_RECOVERY_INITRC := device/sony/kumquat/recovery/init.rc
 TARGET_RECOVERY_FSTAB = device/sony/montblanc-common/config/fstab.st-ericsson
+TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_INTERNAL_STORAGE_PATH := "/sdcard"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_HAS_NO_RECOVERY_PARTITION := true
+#TW_CUSTOM_BATTERY_PATH := "/sys/class/power_supply"
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_MAX_BRIGHTNESS := 255
