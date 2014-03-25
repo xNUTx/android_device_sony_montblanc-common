@@ -3,10 +3,6 @@ $(call inherit-product, build/target/product/languages_full.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 
-# Inherit from recovery
-$(call inherit-product, device/sony/montblanc-common/recovery/recovery.mk)
-
-
 # Inherit from the vendor common montblanc definitions
 $(call inherit-product-if-exists, vendor/sony/montblanc-common/montblanc-common-vendor.mk)
 
@@ -90,9 +86,8 @@ PRODUCT_COPY_FILES += \
     device/sony/montblanc-common/config/ueventd.st-ericsson.rc:root/ueventd.st-ericsson.rc  
    
 
-# Recovery bootstrap scripts
+# Post recovery script
 PRODUCT_COPY_FILES += \
-	device/sony/montblanc-common/recovery/bootrec:root/sbin/bootrec \
 	device/sony/montblanc-common/recovery/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh \
 	device/sony/montblanc-common/config/modelid_cfg.sh:system/bin/modelid_cfg.sh
     
