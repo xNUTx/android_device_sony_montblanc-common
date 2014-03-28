@@ -6,8 +6,9 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 $(call inherit-product-if-exists, vendor/sony/montblanc-common/montblanc-common-vendor.mk)
 
 # Common montblanc headers
-TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
-TARGET_SPECIFIC_HEADER_PATH += device/sony/montblanc-common/hardware
+TARGET_SPECIFIC_HEADER_PATH := \
+	device/sony/montblanc-common/include \
+	device/sony/montblanc-common/hardware
 
 # Common montblanc settings overlays
 DEVICE_PACKAGE_OVERLAYS += device/sony/montblanc-common/overlay
@@ -53,6 +54,7 @@ PRODUCT_PACKAGES += \
 	setup_fs \
 	e2fsck
 
+	
 # Hostapd
 PRODUCT_PACKAGES += \
         hostapd_cli \
@@ -66,13 +68,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
         libblt_hw
 
-#Xperia specific wifi tethering by munjeni
-PRODUCT_PACKAGES += \
-        hostapdpatcher
  
 # libomxil-bellagio
 PRODUCT_PACKAGES += \
         libomxil-bellagio
+    
     
 # libtinyalsa & audio.usb.default
 PRODUCT_PACKAGES += \
@@ -81,10 +81,12 @@ PRODUCT_PACKAGES += \
        audio_policy.default \
        audio.usb.default
 
+       
 # WiFi config utility
 PRODUCT_PACKAGES += \
        iw
 
+       
 # libaudioparameter
 PRODUCT_PACKAGES += \
        libaudioparameter
@@ -94,21 +96,16 @@ PRODUCT_PACKAGES += \
        hostapd_cli \
        hostapd
 
-# Netlink
-PRODUCT_PACKAGES += \
-       libnl_2
-
+       
 # Dbus
 PRODUCT_PACKAGES += \
        libdbus
 
+       
 # lib_net_iface_cmd
 PRODUCT_PACKAGES += \
        libnetcmdiface
-
-# Glib
-PRODUCT_PACKAGES += \
-       libglib
+       
 
 # Libasound
 PRODUCT_PACKAGES += \
