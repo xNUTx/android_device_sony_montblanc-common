@@ -2,10 +2,8 @@
 $(call inherit-product, build/target/product/languages_full.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
-
 # Inherit from the vendor common montblanc definitions
 $(call inherit-product-if-exists, vendor/sony/montblanc-common/montblanc-common-vendor.mk)
-
 
 # Common montblanc headers
 TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
@@ -13,7 +11,6 @@ TARGET_SPECIFIC_HEADER_PATH += device/sony/montblanc-common/hardware
 
 # Common montblanc settings overlays
 DEVICE_PACKAGE_OVERLAYS += device/sony/montblanc-common/overlay
-
 
 # Common montblanc features
 PRODUCT_COPY_FILES += \
@@ -41,123 +38,114 @@ PRODUCT_COPY_FILES += \
 
 # Configuration files
 PRODUCT_COPY_FILES += \
-    device/sony/montblanc-common/config/media_codecs.xml:system/etc/media_codecs.xml \
-    device/sony/montblanc-common/config/egl.cfg:system/lib/egl/egl.cfg \
-    device/sony/montblanc-common/config/asound.conf:system/etc/asound.conf \
-    device/sony/montblanc-common/config/hostapd.conf:system/etc/wifi/hostapd.conf \
-    device/sony/montblanc-common/config/01stesetup:system/etc/init.d/01stesetup \
-    device/sony/montblanc-common/config/10wireless:system/etc/init.d/10wireless \
-    device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+	device/sony/montblanc-common/config/media_codecs.xml:system/etc/media_codecs.xml \
+	device/sony/montblanc-common/config/egl.cfg:system/lib/egl/egl.cfg \
+	device/sony/montblanc-common/config/asound.conf:system/etc/asound.conf \
+	device/sony/montblanc-common/config/hostapd.conf:system/etc/wifi/hostapd.conf \
+	device/sony/montblanc-common/config/01stesetup:system/etc/init.d/01stesetup \
+	device/sony/montblanc-common/config/10wireless:system/etc/init.d/10wireless \
+        device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
 
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-    make_ext4fs \
-    setup_fs \
-    e2fsck
-
+	make_ext4fs \
+	setup_fs \
+	e2fsck
 
 # Hostapd
 PRODUCT_PACKAGES += \
-    hostapd_cli \
-    hostapd
-
+        hostapd_cli \
+        hostapd
 
 # Lights HAL library
 PRODUCT_PACKAGES += \
-   lights.montblanc
-   
+        lights.montblanc
 
 # b2r2lib
 PRODUCT_PACKAGES += \
-    libblt_hw
+        libblt_hw
 
 #Xperia specific wifi tethering by munjeni
 PRODUCT_PACKAGES += \
-    hostapdpatcher
+        hostapdpatcher
  
 # libomxil-bellagio
 PRODUCT_PACKAGES += \
-    libomxil-bellagio
+        libomxil-bellagio
     
 # libtinyalsa & audio.usb.default
 PRODUCT_PACKAGES += \
-    tinyalsa \
-    libtinyalsa \
-    audio_policy.default \
-    audio.usb.default
+       tinyalsa \
+       libtinyalsa \
+       audio_policy.default \
+       audio.usb.default
 
 # WiFi config utility
 PRODUCT_PACKAGES += \
-    iw
+       iw
 
 # libaudioparameter
 PRODUCT_PACKAGES += \
-    libaudioparameter
+       libaudioparameter
 
 # Hostapd
 PRODUCT_PACKAGES += \
-    hostapd_cli \
-    hostapd
+       hostapd_cli \
+       hostapd
 
 # Netlink
 PRODUCT_PACKAGES += \
-    libnl_2
+       libnl_2
 
 # Dbus
 PRODUCT_PACKAGES += \
-    libdbus
+       libdbus
 
 # lib_net_iface_cmd
 PRODUCT_PACKAGES += \
-    libnetcmdiface
+       libnetcmdiface
 
 # Glib
 PRODUCT_PACKAGES += \
-    libglib
-
+       libglib
 
 # Libasound
 PRODUCT_PACKAGES += \
-    libasound
+       libasound
 
 #FM Radio
 # We must adapt Qualcomm FM Radio app
 
-
 # Misc
 PRODUCT_PACKAGES += \
-   com.android.future.usb.accessory
-   
+       com.android.future.usb.accessory
 
 # Custom init scripts
 PRODUCT_COPY_FILES += \
-    device/sony/montblanc-common/config/init.rc:root/init.rc \
-    device/sony/montblanc-common/config/fstab.st-ericsson:root/fstab.st-ericsson \
-    device/sony/montblanc-common/config/init.environ.rc:root/init.environ.rc \
-    device/sony/montblanc-common/config/init.st-ericsson.rc:root/init.st-ericsson.rc \
-    device/sony/montblanc-common/config/ueventd.st-ericsson.rc:root/ueventd.st-ericsson.rc  
-   
+	device/sony/montblanc-common/config/init.rc:root/init.rc \
+	device/sony/montblanc-common/config/fstab.st-ericsson:root/fstab.st-ericsson \
+        device/sony/montblanc-common/config/init.environ.rc:root/init.environ.rc \
+        device/sony/montblanc-common/config/init.st-ericsson.rc:root/init.st-ericsson.rc \
+	device/sony/montblanc-common/config/ueventd.st-ericsson.rc:root/ueventd.st-ericsson.rc  
 
 # Post recovery script
 PRODUCT_COPY_FILES += \
 	device/sony/montblanc-common/recovery/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh \
 	device/sony/montblanc-common/config/modelid_cfg.sh:system/bin/modelid_cfg.sh
-    
-    
+
 # Hardware configuration scripts
 PRODUCT_COPY_FILES += \
-    device/sony/montblanc-common/config/omxloaders:system/etc/omxloaders \
-    device/sony/montblanc-common/config/ril_config:system/etc/ril_config \
-    device/sony/montblanc-common/config/install_wlan.sh:system/bin/install_wlan.sh \
-    device/sony/montblanc-common/config/ste_modem.sh:system/etc/ste_modem.sh \
-    device/sony/montblanc-common/config/gps.conf:system/etc/gps.conf\
-   
+        device/sony/montblanc-common/config/omxloaders:system/etc/omxloaders \
+        device/sony/montblanc-common/config/ril_config:system/etc/ril_config \
+        device/sony/montblanc-common/config/install_wlan.sh:system/bin/install_wlan.sh \
+        device/sony/montblanc-common/config/ste_modem.sh:system/etc/ste_modem.sh \
+        device/sony/montblanc-common/config/gps.conf:system/etc/gps.conf\
    
 # Generic proprieties
 PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_PROPERTY_OVERRIDES += \
-    sys.mem.max_hidden_apps=5 \
-    wifi.interface=wlan0
+        sys.mem.max_hidden_apps=5 \
+        wifi.interface=wlan0
 
 
