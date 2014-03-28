@@ -67,7 +67,60 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
    lights.montblanc
    
-   
+
+# b2r2lib
+PRODUCT_PACKAGES += \
+    libblt_hw
+
+#Xperia specific wifi tethering by munjeni
+PRODUCT_PACKAGES += \
+    hostapdpatcher
+ 
+# libomxil-bellagio
+PRODUCT_PACKAGES += \
+    libomxil-bellagio
+    
+# libtinyalsa & audio.usb.default
+PRODUCT_PACKAGES += \
+    tinyalsa \
+    libtinyalsa \
+    audio_policy.default \
+    audio.usb.default
+
+# WiFi config utility
+PRODUCT_PACKAGES += \
+    iw
+
+# libaudioparameter
+PRODUCT_PACKAGES += \
+    libaudioparameter
+
+# Hostapd
+PRODUCT_PACKAGES += \
+    hostapd_cli \
+    hostapd
+
+# Netlink
+PRODUCT_PACKAGES += \
+    libnl_2
+
+# Dbus
+PRODUCT_PACKAGES += \
+    libdbus
+
+# lib_net_iface_cmd
+PRODUCT_PACKAGES += \
+    libnetcmdiface
+
+# Glib
+PRODUCT_PACKAGES += \
+    libglib
+
+
+# Libasound
+PRODUCT_PACKAGES += \
+    libasound
+
 #FM Radio
 # We must adapt Qualcomm FM Radio app
 
