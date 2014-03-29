@@ -155,7 +155,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
         
 # RIL configuration
 PRODUCT_PROPERTY_OVERRIDES += \
-	rild.libargs=-c UNIX -n 2 -p /dev/socket/at_core -s /dev/socket/at_core -i rmnet \
+	rild.libargs=-c\ UNIX\ -n\ 2\ -p\ /dev/socket/at_core\ -s\ /dev/socket/at_core\ -i\ rmnet \
 	rild.libpath=/system/lib/libu300-ril.so \
 	ro.telephony.ril_class=SonyU8500RIL \
 	ro.telephony.call_ring.multiple=false
