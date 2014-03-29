@@ -65,13 +65,11 @@ PRODUCT_PACKAGES += \
         lights.montblanc
 
 # b2r2lib
-PRODUCT_PACKAGES += \
-        libblt_hw
+PRODUCT_PACKAGES += libblt_hw
 
  
 # libomxil-bellagio
-PRODUCT_PACKAGES += \
-        libomxil-bellagio
+PRODUCT_PACKAGES += libomxil-bellagio
     
     
 # libtinyalsa & audio.usb.default
@@ -83,14 +81,13 @@ PRODUCT_PACKAGES += \
 
        
 # WiFi config utility
-PRODUCT_PACKAGES += \
-       iw
+PRODUCT_PACKAGES += iw
 
        
 # libaudioparameter
-PRODUCT_PACKAGES += \
-       libaudioparameter
+PRODUCT_PACKAGES += libaudioparameter
 
+       
 # Hostapd
 PRODUCT_PACKAGES += \
        hostapd_cli \
@@ -98,25 +95,21 @@ PRODUCT_PACKAGES += \
 
        
 # Dbus
-PRODUCT_PACKAGES += \
-       libdbus
+PRODUCT_PACKAGES += libdbus
 
        
 # lib_net_iface_cmd
-PRODUCT_PACKAGES += \
-       libnetcmdiface
+PRODUCT_PACKAGES += libnetcmdiface
        
 
 # Libasound
-PRODUCT_PACKAGES += \
-       libasound
+PRODUCT_PACKAGES += libasound
 
 #FM Radio
 # We must adapt Qualcomm FM Radio app
 
 # Misc
-PRODUCT_PACKAGES += \
-       com.android.future.usb.accessory
+PRODUCT_PACKAGES += com.android.future.usb.accessory
 
 # Custom init scripts
 PRODUCT_COPY_FILES += \
@@ -131,6 +124,7 @@ PRODUCT_COPY_FILES += \
 	device/sony/montblanc-common/recovery/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh \
 	device/sony/montblanc-common/config/modelid_cfg.sh:system/bin/modelid_cfg.sh
 
+	
 # Hardware configuration scripts
 PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/omxloaders:system/etc/omxloaders \
