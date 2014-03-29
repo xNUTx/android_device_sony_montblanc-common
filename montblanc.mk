@@ -60,9 +60,10 @@ PRODUCT_PACKAGES += \
         hostapd_cli \
         hostapd
 
+
 # Lights HAL library
-PRODUCT_PACKAGES += \
-        lights.montblanc
+PRODUCT_PACKAGES += lights.montblanc
+
 
 # b2r2lib
 PRODUCT_PACKAGES += libblt_hw
@@ -87,7 +88,6 @@ PRODUCT_PACKAGES += iw
 # libaudioparameter
 PRODUCT_PACKAGES += libaudioparameter
 
-       
 # Hostapd
 PRODUCT_PACKAGES += \
        hostapd_cli \
@@ -105,11 +105,22 @@ PRODUCT_PACKAGES += libnetcmdiface
 # Libasound
 PRODUCT_PACKAGES += libasound
 
+
 #FM Radio
 # We must adapt Qualcomm FM Radio app
 
+
+# File Manager
+PRODUCT_PACKAGES += CMFileManager
+
+
+# Torch
+PRODUCT_PACKAGES += Torch
+
+
 # Misc
 PRODUCT_PACKAGES += com.android.future.usb.accessory
+
 
 # Custom init scripts
 PRODUCT_COPY_FILES += \
@@ -119,12 +130,13 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/init.st-ericsson.rc:root/init.st-ericsson.rc \
 	device/sony/montblanc-common/config/ueventd.st-ericsson.rc:root/ueventd.st-ericsson.rc  
 
+
 # Post recovery script
 PRODUCT_COPY_FILES += \
 	device/sony/montblanc-common/recovery/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh \
 	device/sony/montblanc-common/config/modelid_cfg.sh:system/bin/modelid_cfg.sh
 
-	
+
 # Hardware configuration scripts
 PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/omxloaders:system/etc/omxloaders \
