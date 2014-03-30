@@ -167,6 +167,13 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_ALLOW_UNDEFINED_SYMBOLS := true
 include $(BUILD_SHARED_LIBRARY)
 
+# libnl (from vendor) necessay for iw
+include $(CLEAR_VARS)
+LOCAL_MODULE := libnl
+LOCAL_SRC_FILES := $(TARGET_OUT_SHARED_LIBRARIES)/libnl.so
+LOCAL_EXPORT_C_INCLUDES := external/libnl-headers
+include $(PREBUILT_SHARED_LIBRARY)
+
 # iw
 #
 include $(CLEAR_VARS)
@@ -205,8 +212,7 @@ LOCAL_SRC_FILES := \
     ${SRC}/android-nl.c
 
 LOCAL_C_INCLUDES := \
-	$(LOCAL_PATH)/wifi/iw_util \
-	external/libnl-headers
+	$(LOCAL_PATH)/wifi/iw_util
 
 LOCAL_CFLAGS := -O2 -g -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs
 LOCAL_CFLAGS += -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -DCONFIG_LIBNL20
