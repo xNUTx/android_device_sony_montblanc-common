@@ -11,7 +11,7 @@ endif
 TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
 
 # Commons montblanc libraries
-include $(call all-subdir-makefiles, vendor/sony/montblanc-common/hardware)
+include $(call all-subdir-makefiles, device/sony/montblanc-common/hardware)
 
 # Common montblanc settings overlays
 DEVICE_PACKAGE_OVERLAYS += device/sony/montblanc-common/overlay
