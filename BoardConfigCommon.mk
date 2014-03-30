@@ -8,6 +8,7 @@ TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
 TARGET_SPECIFIC_HEADER_PATH += device/sony/montblanc-common/hardware
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun%d/file"
 COMMON_GLOBAL_CFLAGS += -DSTE_HARDWARE
+BOARD_USES_STE_HARDWARE := true
 
 
 # Architecture
