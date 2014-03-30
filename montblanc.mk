@@ -10,9 +10,6 @@ endif
 # Common montblanc headers
 TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
 
-# Commons montblanc libraries
-$(call all-subdir-makefiles, device/sony/montblanc-common/hardware)
-
 # Common montblanc settings overlays
 DEVICE_PACKAGE_OVERLAYS += device/sony/montblanc-common/overlay
 
@@ -95,9 +92,7 @@ PRODUCT_PACKAGES += libaudioparameter
 PRODUCT_PACKAGES += \
        hostapd_cli \
        hostapd
-
-# Netlink
-PRODUCT_PACKAGES += libnl_2
+       
        
 # Dbus
 PRODUCT_PACKAGES += libdbus
