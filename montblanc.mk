@@ -96,6 +96,8 @@ PRODUCT_PACKAGES += \
        hostapd_cli \
        hostapd
 
+# Netlink
+PRODUCT_PACKAGES += libnl_2
        
 # Dbus
 PRODUCT_PACKAGES += libdbus
