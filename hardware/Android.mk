@@ -167,12 +167,6 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_ALLOW_UNDEFINED_SYMBOLS := true
 include $(BUILD_SHARED_LIBRARY)
 
-# libnl (from vendor) necessay for iw
-include $(CLEAR_VARS)
-LOCAL_MODULE := libnl
-LOCAL_SRC_FILES := $(TARGET_OUT_SHARED_LIBRARIES)/libnl.so
-EXPORT_C_INCLUDES := external/libnl-headers
-include $(PREBUILT_SHARED_LIBRARY)
 
 # iw
 #
@@ -219,7 +213,8 @@ LOCAL_CFLAGS += -fno-strict-aliasing -fno-common -Werror-implicit-function-decla
 LOCAL_LDFLAGS := -Wl,--no-gc-sections
 LOCAL_MODULE_PATH := $(TARGET_OUT_EXECUTABLES)
 LOCAL_MODULE_TAGS := optional
-LOCAL_SHARED_LIBRARIES := libnl
+LOCAL_STATIC_LIBRARIES := libnl_2 libc libstdc++ libm
+LOCAL_FORCE_STATIC_EXECUTABLE := true
 LOCAL_MODULE:=iw
 include $(BUILD_EXECUTABLE)
 
