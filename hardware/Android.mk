@@ -133,7 +133,7 @@ LOCAL_SRC_FILES:= \
    $(SRC)/sd-daemon.c
 
 LOCAL_C_INCLUDES := \
-	$(LOCAL_PATH)dbus
+	$(LOCAL_PATH)/dbus
 LOCAL_MODULE:=libdbus
 LOCAL_CFLAGS+= \
 	-DDBUS_COMPILATION \
