@@ -79,7 +79,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 LOG_TO_ANDROID_LOGCAT := true
 include $(CLEAR_VARS)
-SRC := system/dbus
+SRC := dbus
 LOCAL_SRC_FILES:= \
    $(SRC)/dbus-address.c \
    $(SRC)/dbus-auth.c \
@@ -133,7 +133,7 @@ LOCAL_SRC_FILES:= \
    $(SRC)/sd-daemon.c
 
 LOCAL_C_INCLUDES := \
-	$(LOCAL_PATH)/dbus
+	$(LOCAL_PATH)dbus
 LOCAL_MODULE:=libdbus
 LOCAL_CFLAGS+= \
 	-DDBUS_COMPILATION \
