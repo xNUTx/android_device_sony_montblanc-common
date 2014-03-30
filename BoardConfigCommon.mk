@@ -113,7 +113,7 @@ BOARD_USES_MMCUTILS := true
 COMMON_GLOBAL_CFLAGS += -DXPERIA_TWRP_TOUCH
 RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_INITRC := device/sony/montblanc-common/recovery/init.rc
-TARGET_RECOVERY_FSTAB = device/sony/montblanc-common/config/fstab.st-ericsson
+TARGET_RECOVERY_FSTAB := device/sony/montblanc-common/config/fstab.st-ericsson
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_INTERNAL_STORAGE_PATH := "/sdcard"
@@ -121,3 +121,7 @@ TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 TW_HAS_NO_RECOVERY_PARTITION := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
+
+
+# System proprieties
+TARGET_SYSTEM_PROP := device/sony/montblanc-common/system.prop

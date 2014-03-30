@@ -146,52 +146,5 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/gps.conf:system/etc/gps.conf
    
    
-# Generic proprieties
+# Garbage Collector type
 PRODUCT_TAGS += dalvik.gc.type-precise
-PRODUCT_PROPERTY_OVERRIDES += \
-        sys.mem.max_hidden_apps=5 \
-        wifi.interface=wlan0
-
-        
-# RIL configuration
-PRODUCT_PROPERTY_OVERRIDES += \
-        rild.libargs="-c UNIX -n 2 -p /dev/socket/at_core -s /dev/socket/at_core -i rmnet" \
-        rild.libpath=/system/lib/libu300-ril.so \
-        ro.telephony.ril_class=SonyU8500RIL \
-        ro.telephony.call_ring.multiple=false
-
-
-# OpenGL ES API version (131072 = 2.0)
-PRODUCT_PROPERTY_OVERRIDES += ro.opengles.version=131072
-
-
-# Debug compositor (0 = b2r2, 1 = Mali)
-PRODUCT_PROPERTY_OVERRIDES += debug.sf.hw=1
-
-
-# EGL miscellaneous
-PRODUCT_PROPERTY_OVERRIDES += \
-        ro.zygote.disable_gl_preload=true \
-        debug.hwui.render_dirty_regions=false \
-        hwui.render_dirty_regions=false
-
-
-# Disable Strict Mode
-PRODUCT_PROPERTY_OVERRIDES += \
-        persist.sys.strictmode.disable=true \
-        persist.sys.strictmode.visual=false
-
-
-# Low power audio
-PRODUCT_PROPERTY_OVERRIDES += ste.nmf.autoidle=true
-
-
-# Fast Dormancy
-PRODUCT_PROPERTY_OVERRIDES += ste.special_fast_dormancy=false
-
-
-# Audio configuration
-PRODUCT_PROPERTY_OVERRIDES += \
-        persist.audio.hp=true \
-        ro.sound.driver=alsa 
-
