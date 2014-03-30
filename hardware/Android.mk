@@ -171,7 +171,7 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE := libnl
 LOCAL_SRC_FILES := $(TARGET_OUT_SHARED_LIBRARIES)/libnl.so
-LOCAL_EXPORT_C_INCLUDES := external/libnl-headers
+EXPORT_C_INCLUDES := external/libnl-headers
 include $(PREBUILT_SHARED_LIBRARY)
 
 # iw
