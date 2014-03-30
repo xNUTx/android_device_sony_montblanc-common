@@ -20,7 +20,7 @@ SRC := $(LOCAL_PATH)
 
 NO_PKG_CONFIG=y
 LOCAL_SRC_FILES := \
-    $(SRC)/$(SRC)/bitrate.c \
+    $(SRC)/bitrate.c \
     $(SRC)/coalesce.c \
     $(SRC)/connect.c \
     $(SRC)/cqm.c \
