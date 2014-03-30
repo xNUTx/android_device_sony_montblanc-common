@@ -602,3 +602,41 @@ index cc8de46..53fa1de 100644
  LOCAL_C_INCLUDES += $(TOPDIR)$(LOCAL_PATH) $(intermediates)
 
  ifndef LOCAL_SDK_VERSION
+diff --git a/core/Makefile b/core/Makefile
+index f118cea..2f46abb 100644
+--- a/core/Makefile
++++ b/core/Makefile
+@@ -189,6 +189,7 @@ $(INSTALLED_BUILD_PROP_TARGET): $(BUILDINFO_SH) $(INTERNAL_BUILD_ID_MAKEFILE) $(
+ 			TARGET_BOARD_PLATFORM="$(TARGET_BOARD_PLATFORM)" \
+ 			TARGET_CPU_ABI="$(TARGET_CPU_ABI)" \
+ 			TARGET_CPU_ABI2="$(TARGET_CPU_ABI2)" \
++			$(PRODUCT_BUILD_PROP_OVERRIDES) \
+ 			TARGET_AAPT_CHARACTERISTICS="$(TARGET_AAPT_CHARACTERISTICS)" \
+ 	        bash $(BUILDINFO_SH) > $@
+ 	$(hide) $(foreach file,$(system_prop_file), \
+diff --git a/core/product.mk b/core/product.mk
+index a2f4abc..d201efa 100644
+--- a/core/product.mk
++++ b/core/product.mk
+@@ -65,6 +65,7 @@ endef
+ #
+ 
+ _product_var_list := \
++    PRODUCT_BUILD_PROP_OVERRIDES \
+     PRODUCT_NAME \
+     PRODUCT_MODEL \
+     PRODUCT_LOCALES \
+diff --git a/core/product_config.mk b/core/product_config.mk
+index e4b68cf..ec17492 100644
+--- a/core/product_config.mk
++++ b/core/product_config.mk
+@@ -313,6 +313,9 @@ PRODUCT_AAPT_CONFIG := \
+ PRODUCT_AAPT_PREF_CONFIG := \
+     $(subst $(space),$(comma),$(strip $(PRODUCT_AAPT_PREF_CONFIG)))
+ 
++PRODUCT_BUILD_PROP_OVERRIDES := \
++       $(strip $(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_BUILD_PROP_OVERRIDES))
++
+ PRODUCT_BRAND := $(strip $(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_BRAND))
+ 
+ PRODUCT_MODEL := $(strip $(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_MODEL))
