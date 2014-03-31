@@ -33,7 +33,6 @@ PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
         packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
-
 # Configuration files
 PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/media_codecs.xml:system/etc/media_codecs.xml \
@@ -45,10 +44,8 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
         device/sony/montblanc-common/config/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
         
-        
 # KitKat Launcher
 PRODUCT_PACKAGES += Launcher3        
-
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -56,74 +53,58 @@ PRODUCT_PACKAGES += \
         setup_fs \
         e2fsck
 
-	
-# Hostapd
+        # Hostapd
 PRODUCT_PACKAGES += \
         hostapd_cli \
         hostapd
 
-
 # Lights HAL library
 PRODUCT_PACKAGES += lights.montblanc
 
-
 # b2r2lib
 PRODUCT_PACKAGES += libblt_hw
-
  
 # libomxil-bellagio
 PRODUCT_PACKAGES += libomxil-bellagio
-    
-    
+   
 # libtinyalsa & audio.usb.default
 PRODUCT_PACKAGES += \
        tinyalsa \
        libtinyalsa \
        audio_policy.default \
        audio.usb.default
-
        
 # WiFi config utility
 PRODUCT_PACKAGES += iw
-
        
 # libaudioparameter
 PRODUCT_PACKAGES += libaudioparameter
-
 
 # Hostapd
 PRODUCT_PACKAGES += \
        hostapd_cli \
        hostapd
-       
-       
+      
 # Dbus
 PRODUCT_PACKAGES += libdbus
-
        
 # lib_net_iface_cmd
 PRODUCT_PACKAGES += libnetcmdiface
-       
 
 # Libasound
 PRODUCT_PACKAGES += libasound
 
-
 #FM Radio
 # We must adapt Qualcomm FM Radio app
-
 
 # File Manager
 PRODUCT_PACKAGES += CMFileManager
 
-
 # Torch
 PRODUCT_PACKAGES += Torch
 
-
 # Misc
 PRODUCT_PACKAGES += com.android.future.usb.accessory
-
 
 # BlueZ
 PRODUCT_PACKAGES += \
@@ -143,7 +124,6 @@ PRODUCT_PACKAGES += \
         avtest \
         libsbc \
         hciattach
-
         
 # Custom init scripts
 PRODUCT_COPY_FILES += \
@@ -153,12 +133,10 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/init.st-ericsson.rc:root/init.st-ericsson.rc \
         device/sony/montblanc-common/config/ueventd.st-ericsson.rc:root/ueventd.st-ericsson.rc  
 
-
 # Post recovery script
 PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/recovery/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh \
         device/sony/montblanc-common/config/modelid_cfg.sh:system/bin/modelid_cfg.sh
-
 
 # Hardware configuration scripts
 PRODUCT_COPY_FILES += \
@@ -167,10 +145,6 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/install_wlan.sh:system/bin/install_wlan.sh \
         device/sony/montblanc-common/config/ste_modem.sh:system/etc/ste_modem.sh \
         device/sony/montblanc-common/config/gps.conf:system/etc/gps.conf
-   
-
-PRODUCT_PROPERTY_OVERRIDES += persist.sys.usb.config=mtp,adb
-
 
 # Garbage Collector type
 PRODUCT_TAGS += dalvik.gc.type-precise
