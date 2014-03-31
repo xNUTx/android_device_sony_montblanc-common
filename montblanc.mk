@@ -168,6 +168,9 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/ste_modem.sh:system/etc/ste_modem.sh \
         device/sony/montblanc-common/config/gps.conf:system/etc/gps.conf
    
-   
+
+PRODUCT_PROPERTY_OVERRIDES += persist.sys.usb.config=mtp,adb
+
+
 # Garbage Collector type
 PRODUCT_TAGS += dalvik.gc.type-precise
