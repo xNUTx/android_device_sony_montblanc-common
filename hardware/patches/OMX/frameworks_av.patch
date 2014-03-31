@@ -100,7 +100,7 @@ index 891bc4b..263ace7 100644
      static const char * const keyInputSource;
      static const char * const keyScreenState;
 +#ifdef STE_AUDIO
-+    static const char * const keySinkLatency;
++    static const char *keySinkLatency;
 +#endif
  
      String8 toString();
