@@ -11,9 +11,3 @@ index ff9357b..1ce576d 100644
  static const char CONTROL_IFACE_PATH[]  = "/data/misc/wifi/sockets";
  static const char MODULE_FILE[]         = "/proc/modules";
 
-
-
-
-
-
- 
