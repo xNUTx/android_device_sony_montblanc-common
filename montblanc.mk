@@ -2,10 +2,8 @@
 $(call inherit-product, build/target/product/languages_full.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
-ifeq ($(TARGET_PRODUCT),full_lotus,full_pepper,full_kumquat)
 # Inherit from the vendor common montblanc definitions
 $(call inherit-product-if-exists, vendor/sony/montblanc-common/montblanc-common-vendor.mk)
-endif
 
 # Common montblanc headers
 TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
