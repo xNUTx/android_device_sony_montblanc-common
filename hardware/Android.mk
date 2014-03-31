@@ -230,7 +230,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_PRELINK_MODULE := false
 LOCAL_ARM_MODE := arm
 
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/audio/alsa-lib/include
 
 # libasound must be compiled with -fno-short-enums, as it makes extensive
 # use of enums which are often type casted to unsigned ints.
