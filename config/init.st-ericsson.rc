@@ -482,7 +482,7 @@ service wpa_supplicant /system/bin/wpa_supplicant \
 service p2p_supplicant /system/bin/wpa_supplicant \
     -Dnl80211 \
     -iwlan0 \
-    -c/data/misc/wifi/p2p_supplicant.conf \
+    -c/data/misc/wifi/wpa_supplicant.conf \
     -e/data/misc/wifi/entropy.bin \
     -g@android:wpa_wlan0
     class main
@@ -497,13 +497,13 @@ service hostapd_bin /system/bin/hostapd -d /data/misc/wifi/hostapd.conf
     disabled
     oneshot
 
-service dhcpcd_wlan0 /system/bin/logwrapper /system/bin/dhcpcd -dB -t 30 -o domain_name_servers
+service dhcpcd_wlan0 /system/bin/dhcpcd -aABdKL -t 30
     class main
     group dhcp
     disabled
     oneshot
 
-service dhcpcd_p2p /system/bin/dhcpcd -aABKL
+service dhcpcd_p2p /system/bin/dhcpcd -aABdKL -t 30
     class main
     group dhcp
     disabled

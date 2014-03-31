@@ -11,6 +11,13 @@ if [ ! -f /data/misc/wifi/hostapd.conf ]; then
     chmod 660 /data/misc/wifi/hostapd.conf
 fi
 
+# Copy dhcpcd.conf to data dhcpcd if it doesnt exists...
+if [ ! -f /data/misc/dhcpcd/dhcpcd.conf ]; then
+    cp /system/etc/dhcpcd/dhcpcd.conf /data/misc/dhcpcd/dhcpcd.conf
+    chown dhcp.dhcp 
+    chmod 660 /data/misc/dhcpcd/dhcpcd.conf
+fi
+
 # Copy wpa_supplicant.conf to data wifi if it doesnt exists...
 if [ ! -f /data/misc/wifi/wpa_supplicant.conf ]; then
     cp /system/etc/wifi/wpa_supplicant.conf /data/misc/wifi/wpa_supplicant.conf

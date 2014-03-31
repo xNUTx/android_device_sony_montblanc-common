@@ -45,7 +45,9 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/hostapd.conf:system/etc/wifi/hostapd.conf \
         device/sony/montblanc-common/config/01stesetup:system/etc/init.d/01stesetup \
         device/sony/montblanc-common/config/10wireless:system/etc/init.d/10wireless \
-        device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+        device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf\
+        device/sony/montblanc-common/config/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
+        
 
 
 # Filesystem management tools
@@ -88,6 +90,7 @@ PRODUCT_PACKAGES += iw
 # libaudioparameter
 PRODUCT_PACKAGES += libaudioparameter
 
+
 # Hostapd
 PRODUCT_PACKAGES += \
        hostapd_cli \
@@ -122,6 +125,26 @@ PRODUCT_PACKAGES += Torch
 PRODUCT_PACKAGES += com.android.future.usb.accessory
 
 
+# BlueZ
+PRODUCT_PACKAGES += \
+        libglib \
+        bluetoothd \
+        bluetooth.default \
+        haltest \
+        btmon \
+        btproxy \
+        audio.a2dp.default \
+        l2test \
+        bluetoothd-snoop \
+        init.bluetooth.rc \
+        btmgmt \
+        hcitool \
+        l2ping \
+        avtest \
+        libsbc \
+        hciattach
+
+        
 # Custom init scripts
 PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/init.rc:root/init.rc \
