@@ -48,6 +48,9 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
         device/sony/montblanc-common/config/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
         
+        
+# KitKat Launcher
+PRODUCT_PACKAGES += Launcher3        
 
 
 # Filesystem management tools
