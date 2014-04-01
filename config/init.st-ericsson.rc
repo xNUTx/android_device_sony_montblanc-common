@@ -663,6 +663,10 @@ service hw_config /system/bin/sh /system/etc/hw_config.sh
     class main
     user root
     oneshot
+    
+service usbid_init /system/bin/usbid_init.sh
+    class main
+    oneshot    
 
 # Start suntrold
 service suntrold /system/bin/suntrold
