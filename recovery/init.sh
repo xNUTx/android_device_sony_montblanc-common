@@ -31,6 +31,8 @@ busybox echo 255 > ${BOOTREC_LED_RED}
 busybox echo 0 > ${BOOTREC_LED_GREEN}
 busybox echo 255 > ${BOOTREC_LED_BLUE}
 
+busybox echo '200' > /sys/class/timed_output/vibrator/enable
+
 # keycheck
 busybox cat ${BOOTREC_EVENT} > /dev/keycheck&
 busybox sleep 3
@@ -45,8 +47,7 @@ if [ -s /dev/keycheck ] || busybox grep -q warmboot=0x5502 /proc/cmdline; then
 	busybox echo 0 > ${BOOTREC_LED_RED}
 	busybox echo 0 > ${BOOTREC_LED_GREEN}
 	busybox echo 255 > ${BOOTREC_LED_BLUE}
-	
-        busybox echo '200' > /sys/class/timed_output/vibrator/enable
+
 	# recovery ramdisk
 	load_image=/sbin/ramdisk-recovery.cpio
 else
