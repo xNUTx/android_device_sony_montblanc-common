@@ -2,6 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 INITSH := $(LOCAL_PATH)/recovery/init.sh
 BOOTREC_DEVICE := device/sony/$(TARGET_DEVICE)/config/bootrec-device
+BOOTREC_LED := device/sony/$(TARGET_DEVICE)/config/bootrec-led
 
 INSTALLED_BOOTIMAGE_TARGET := $(PRODUCT_OUT)/boot.img
 $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(recovery_ramdisk) $(INSTALLED_RAMDISK_TARGET) $(PRODUCT_OUT)/utilities/busybox $(MKBOOTIMG) $(MINIGZIP) $(INTERNAL_BOOTIMAGE_FILES)
@@ -15,6 +16,7 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(recovery_ramdisk) $(INSTA
 	$(hide) ln -s sbin/init.sh $(PRODUCT_OUT)/combinedroot/init
 	$(hide) cp $(PRODUCT_OUT)/utilities/busybox $(PRODUCT_OUT)/combinedroot/sbin/
 	$(hide) cp $(BOOTREC_DEVICE) $(PRODUCT_OUT)/combinedroot/sbin/
+	$(hide) cp $(BOOTREC_LED) $(PRODUCT_OUT)/combinedroot/sbin/
 
 	$(hide) cp -R $(PRODUCT_OUT)/recovery/root/sbin/* $(PRODUCT_OUT)/root/sbin/
 	$(hide) cp $(LOCAL_PATH)/config/default.prop $(PRODUCT_OUT)/root/
