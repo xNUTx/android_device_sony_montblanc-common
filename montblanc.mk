@@ -53,11 +53,6 @@ PRODUCT_PACKAGES += \
         setup_fs \
         e2fsck
 
-        # Hostapd
-PRODUCT_PACKAGES += \
-        hostapd_cli \
-        hostapd
-
 # Lights HAL library
 PRODUCT_PACKAGES += lights.montblanc
 
