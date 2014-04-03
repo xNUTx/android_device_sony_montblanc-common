@@ -92,16 +92,16 @@ index f07fc14..62a5f8d 100644
 +++ b/bootable/recovery/minuitwrp/events.c
 @@ -168,7 +168,13 @@ static int vk_init(struct ev *e)
  #endif
- 
+
      // Blacklist these "input" devices
 +#ifdef XPERIA_TWRP_TOUCH
 +    if (strcmp(e->deviceName, "bma250") == 0 || strcmp(e->deviceName, "bma150") == 0
 +        || strcmp(e->deviceName, "lsm303dlhc_acc_lt") == 0 || strcmp(e->deviceName, "lsm303dlh_mag") == 0
 +        || strcmp(e->deviceName, "l3g4200d_gyr") == 0)
 +#else
-     if (strcmp(e->deviceName, "bma250") == 0 || strcmp(e->deviceName, "bma150") == 0)
+     if (strcmp(e->deviceName, "bma250") == 0 || strcmp(e->deviceName, "bma150") == 0 || strcmp(e->deviceName, "accelerometer") == 0)
 +#endif
-     {
+     {   
          e->ignored = 1;
      }
 diff --git a/bootable/recovery/twrp.cpp b/bootable/recovery/twrp.cpp
