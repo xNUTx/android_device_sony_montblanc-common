@@ -13,7 +13,8 @@ index 7b9cf4e..bb06a5b 100644
          } else {
              int cdmaLevel = getCdmaLevel();
              int evdoLevel = getEvdoLevel();
-@@ -501,10 +498,7 @@ public class SignalStrength implements Parcelable {
+             int evdoLevel = getEvdoLevel();
+@@ -501,11 +498,7 @@ public class SignalStrength implements Parcelable {
      public int getAsuLevel() {
          int asuLevel;
          if (isGsm) {
@@ -21,9 +22,10 @@ index 7b9cf4e..bb06a5b 100644
                  asuLevel = getGsmAsuLevel();
 -            } else {
 -                asuLevel = getLteAsuLevel();
-             }
+-            }
          } else {
              int cdmaAsuLevel = getCdmaAsuLevel();
+             int evdoAsuLevel = getEvdoAsuLevel();
 @@ -533,11 +527,7 @@ public class SignalStrength implements Parcelable {
          int dBm;
 
