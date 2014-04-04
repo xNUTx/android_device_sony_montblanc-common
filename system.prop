@@ -1,6 +1,7 @@
 # System generic configuration
 sys.mem.max_hidden_apps=5 \
 wifi.interface=wlan0
+persist.sys.usb.config=mass_storage
 
 
 # RIL configuration
