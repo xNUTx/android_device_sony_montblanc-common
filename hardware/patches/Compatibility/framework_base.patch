@@ -13,7 +13,6 @@ index 7b9cf4e..bb06a5b 100644
          } else {
              int cdmaLevel = getCdmaLevel();
              int evdoLevel = getEvdoLevel();
-             int evdoLevel = getEvdoLevel();
 @@ -501,11 +498,7 @@ public class SignalStrength implements Parcelable {
      public int getAsuLevel() {
          int asuLevel;
