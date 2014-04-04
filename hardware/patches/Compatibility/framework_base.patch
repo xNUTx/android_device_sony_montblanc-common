@@ -2,7 +2,18 @@ diff --git a/frameworks/base/telephony/java/android/telephony/SignalStrength.jav
 index 7b9cf4e..bb06a5b 100644
 --- a/frameworks/base/telephony/java/android/telephony/SignalStrength.java
 +++ b/frameworks/base/telephony/java/android/telephony/SignalStrength.java
-@@ -501,10 +501,7 @@ public class SignalStrength implements Parcelable {
+@@ -471,10 +471,7 @@ public class SignalStrength implements Parcelable {
+         int level;
+
+         if (isGsm) {
+-            level = getLteLevel();
+-            if (level == SIGNAL_STRENGTH_NONE_OR_UNKNOWN) {
+                 level = getGsmLevel();
+-            }
+         } else {
+             int cdmaLevel = getCdmaLevel();
+             int evdoLevel = getEvdoLevel();
+@@ -501,10 +498,7 @@ public class SignalStrength implements Parcelable {
      public int getAsuLevel() {
          int asuLevel;
          if (isGsm) {
@@ -13,7 +24,7 @@ index 7b9cf4e..bb06a5b 100644
              }
          } else {
              int cdmaAsuLevel = getCdmaAsuLevel();
-@@ -533,11 +530,7 @@ public class SignalStrength implements Parcelable {
+@@ -533,11 +527,7 @@ public class SignalStrength implements Parcelable {
          int dBm;
 
          if(isGsm()) {
@@ -24,4 +35,4 @@ index 7b9cf4e..bb06a5b 100644
 -            }
          } else {
              int cdmaDbm = getCdmaDbm();
-             int evdoDbm = getEvdoDbm(); 
+             int evdoDbm = getEvdoDbm();
