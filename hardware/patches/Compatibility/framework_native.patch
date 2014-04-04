@@ -28,7 +28,7 @@ index aafc4d2..ba0f64d 100644
 +    DisplayInfo info;
 +    getDisplayInfo(getBuiltInDisplay(displayId), &info);
 +    return info.w;
-+}   
++}
 +    
 +ssize_t SurfaceComposerClient::getDisplayHeight(int32_t displayId) {
 +    DisplayInfo info;
