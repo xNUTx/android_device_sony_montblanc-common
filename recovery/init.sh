@@ -54,7 +54,6 @@ busybox pkill -f "busybox cat ${BOOTREC_EVENT}"
 # unpack the ramdisk image
 busybox cpio -i < ${load_image}
 
-busybox umount /cache
 busybox umount /proc
 busybox umount /sys
 
