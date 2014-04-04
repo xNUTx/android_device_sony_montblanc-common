@@ -5,7 +5,7 @@ sys.mem.max_hidden_apps=5
 wifi.interface=wlan0
 
 # USB
-persist.sys.usb.config=mass_storage
+persist.sys.usb.config=mtp
 
 # Bluetooth
 persist.sys.bluetooth.handsfree=hfp
