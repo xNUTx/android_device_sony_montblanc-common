@@ -128,6 +128,11 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/init.st-ericsson.rc:root/init.st-ericsson.rc \
         device/sony/montblanc-common/config/ueventd.st-ericsson.rc:root/ueventd.st-ericsson.rc \
         device/sony/montblanc-common/config/usbid_init.sh:system/bin/usbid_init.sh
+        
+# Superuser files
+PRODUCT_COPY_FILES += \
+        device/sony/montblanc-common/config/.has_su_daemon:root/system/etc/.has_su_daemon \
+        external/koush/Superuser/init.superuser.rc:root/init.superuser.rc
 
 # Post recovery script
 PRODUCT_COPY_FILES += \
