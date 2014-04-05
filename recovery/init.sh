@@ -52,7 +52,8 @@ fi
 busybox pkill -f "busybox cat ${BOOTREC_EVENT}"
 
 # unpack the ramdisk image
-busybox cpio -i < ${load_image}
+# -u should be used to replace the static busybox with dynamically linked one.
+busybox cpio -ui < ${load_image}
 
 busybox umount /proc
 busybox umount /sys
