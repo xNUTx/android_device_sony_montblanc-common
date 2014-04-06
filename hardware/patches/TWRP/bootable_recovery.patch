@@ -1,5 +1,5 @@
 diff --git a/bootable/recovery/Android.mk b/bootable/recovery/Android.mk
-index 46098cc..da527a8 100644
+index 98c4427..5a9a1a2 100644
 --- a/bootable/recovery/Android.mk
 +++ b/bootable/recovery/Android.mk
 @@ -44,6 +44,19 @@ RECOVERY_API_VERSION := 3
@@ -23,7 +23,7 @@ index 46098cc..da527a8 100644
  #    libext4_utils_static \
  #    libsparse_static \
 diff --git a/bootable/recovery/data.cpp b/bootable/recovery/data.cpp
-index 230ac73..04b8172 100644
+index c9628a4..e414853 100644
 --- a/bootable/recovery/data.cpp
 +++ b/bootable/recovery/data.cpp
 @@ -50,6 +50,10 @@
@@ -37,7 +37,7 @@ index 230ac73..04b8172 100644
  extern "C"
  {
  	#include "twcommon.h"
-@@ -1008,7 +1012,12 @@ int DataManager::GetMagicValue(const string varName, string& value)
+@@ -1010,7 +1014,12 @@ int DataManager::GetMagicValue(const string varName, string& value)
  			capacity_file += "/capacity";
  			FILE * cap = fopen(capacity_file.c_str(),"rt");
  #else
@@ -50,7 +50,7 @@ index 230ac73..04b8172 100644
  #endif
  			if (cap){
  				fgets(cap_s, 4, cap);
-@@ -1022,7 +1031,12 @@ int DataManager::GetMagicValue(const string varName, string& value)
+@@ -1024,7 +1033,12 @@ int DataManager::GetMagicValue(const string varName, string& value)
  			status_file += "/status";
  			cap = fopen(status_file.c_str(),"rt");
  #else
@@ -63,7 +63,7 @@ index 230ac73..04b8172 100644
  #endif
  			if (cap) {
  				fgets(cap_s, 2, cap);
-@@ -1033,6 +1047,22 @@ int DataManager::GetMagicValue(const string varName, string& value)
+@@ -1035,6 +1049,22 @@ int DataManager::GetMagicValue(const string varName, string& value)
  					charging = ' ';
  			}
  			nextSecCheck = curTime.tv_sec + 60;
@@ -87,12 +87,12 @@ index 230ac73..04b8172 100644
  
  		sprintf(tmp, "%i%%%c", lastVal, charging);
 diff --git a/bootable/recovery/minuitwrp/events.c b/bootable/recovery/minuitwrp/events.c
-index f07fc14..62a5f8d 100644
+index 93c41f2..772ad2a 100644
 --- a/bootable/recovery/minuitwrp/events.c
 +++ b/bootable/recovery/minuitwrp/events.c
 @@ -168,7 +168,13 @@ static int vk_init(struct ev *e)
  #endif
-
+ 
      // Blacklist these "input" devices
 +#ifdef XPERIA_TWRP_TOUCH
 +    if (strcmp(e->deviceName, "bma250") == 0 || strcmp(e->deviceName, "bma150") == 0
@@ -101,7 +101,7 @@ index f07fc14..62a5f8d 100644
 +#else
      if (strcmp(e->deviceName, "bma250") == 0 || strcmp(e->deviceName, "bma150") == 0 || strcmp(e->deviceName, "accelerometer") == 0)
 +#endif
-     {   
+     {
          e->ignored = 1;
      }
 diff --git a/bootable/recovery/twrp.cpp b/bootable/recovery/twrp.cpp
@@ -152,3 +152,4 @@ index 0000000..6d4929e
 +#endif /* XPERIA_P */
 +
 +#endif
+
