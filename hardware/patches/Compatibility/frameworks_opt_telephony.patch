@@ -14,7 +14,7 @@ index b0ab1d0..5589a3a 100644
  LOCAL_MODULE_TAGS := optional
  LOCAL_MODULE := telephony-common
 diff --git a/frameworks/opt/telephony/src/java/com/android/internal/telephony/PhoneFactory.java b/frameworks/opt/telephony/src/java/com/android/internal/telephony/PhoneFactory.java
-index 73ea332..a2cf2dd 100644
+index d7b4c8f..4918958 100644
 --- a/frameworks/opt/telephony/src/java/com/android/internal/telephony/PhoneFactory.java
 +++ b/frameworks/opt/telephony/src/java/com/android/internal/telephony/PhoneFactory.java
 @@ -23,6 +23,7 @@ import android.os.Looper;
@@ -25,24 +25,37 @@ index 73ea332..a2cf2dd 100644
  
  import com.android.internal.telephony.cdma.CDMALTEPhone;
  import com.android.internal.telephony.cdma.CDMAPhone;
-@@ -114,7 +115,7 @@ public class PhoneFactory {
+@@ -32,6 +33,8 @@ import com.android.internal.telephony.sip.SipPhone;
+ import com.android.internal.telephony.sip.SipPhoneFactory;
+ import com.android.internal.telephony.uicc.UiccController;
+ 
++import java.lang.reflect.Constructor;
++
+ /**
+  * {@hide}
+  */
+@@ -111,7 +114,20 @@ public class PhoneFactory {
+                 Rlog.i(LOG_TAG, "Cdma Subscription set to " + cdmaSubscription);
  
                  //reads the system properties and makes commandsinterface
-                 String sRILClassname = SystemProperties.get("ro.telephony.ril_class", "RIL");
--                Log.i(LOG_TAG, "RILClassname is " + sRILClassname);
+-                sCommandsInterface = new RIL(context, networkMode, cdmaSubscription);
++                String sRILClassname = SystemProperties.get("ro.telephony.ril_class", "RIL");
 +                Rlog.i(LOG_TAG, "RILClassname is " + sRILClassname);
++
++                // Use reflection to construct the RIL class (defaults to RIL)
++                try {
++                    Class<?> classDefinition = Class.forName("com.android.internal.telephony." + sRILClassname);
++                    Constructor<?> constructor = classDefinition.getConstructor(new Class[] {Context.class, int.class, int.class});
++                    sCommandsInterface = (RIL) constructor.newInstance(new Object[] {context, networkMode, cdmaSubscription});
++                } catch (Exception e) {
++                    // 6 different types of exceptions are thrown here that it's
++                    // easier to just catch Exception as our "error handling" is the same.
++                    Rlog.e(LOG_TAG, "Unable to construct command interface", e);
++                    throw new RuntimeException(e);
++                }
  
-                 // Use reflection to construct the RIL class (defaults to RIL)
-                 try {
-@@ -124,7 +125,7 @@ public class PhoneFactory {
-                 } catch (Exception e) {
-                     // 6 different types of exceptions are thrown here that it's
-                     // easier to just catch Exception as our "error handling" is the same.
--                    Log.wtf(LOG_TAG, "Unable to construct command interface", e);
-+                    Rlog.i(LOG_TAG, "Unable to construct command interface", e);
-                     throw new RuntimeException(e);
-                 }
- 
+                 // Instantiate UiccController so that all other classes can just call getInstance()
+                 UiccController.make(context, sCommandsInterface);
 diff --git a/frameworks/opt/telephony/src/java/com/android/internal/telephony/RIL.java b/frameworks/opt/telephony/src/java/com/android/internal/telephony/RIL.java
 index 824e191..cbc244d 100644
 --- a/frameworks/opt/telephony/src/java/com/android/internal/telephony/RIL.java
