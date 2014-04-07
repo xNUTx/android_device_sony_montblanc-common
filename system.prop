@@ -3,7 +3,7 @@ ro.build.user=AOSX
 ro.build.host=Linux
 ro.build.display.id=AOSX 4.4.2_r2 V0
 ro.build.fingerprint=AOSX-4.4.2_r2-V0
-ro.build.description=Andorid Open Source Xperia 4.4.2_r2 Ver 0
+ro.build.description=Android Open Source Xperia 4.4.2_r2 Ver 0
 
 
 # System generic configuration
