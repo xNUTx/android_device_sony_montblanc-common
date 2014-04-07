@@ -1,0 +1,34 @@
+diff --git a/packages/apps/Settings/src/com/android/settings/DeviceInfoSettings.java b/packages/apps/Settings/src/com/android/settings/DeviceInfoSettings.java
+index 7e94741..2111c60 100644
+--- a/packages/apps/Settings/src/com/android/settings/DeviceInfoSettings.java
++++ b/packages/apps/Settings/src/com/android/settings/DeviceInfoSettings.java
+@@ -300,12 +300,13 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
+         //     Thu Jun 28 11:02:39 PDT 2012
+ 
+         final String PROC_VERSION_REGEX =
+-            "Linux version (\\S+) " + /* group 1: "3.0.31-g6fb96c9" */
+-            "\\((\\S+?)\\) " +        /* group 2: "x@y.com" (kernel builder) */
++            "Linux version (\\S+)-" + /* group 1: "3.0.31" */
++           "(\\S+)" +                /* group 2: "-g6fb96c9" */
++            "\\((\\S+?)\\) " +        /* group 3: "x@y.com" (kernel builder) */
+             "(?:\\(gcc.+? \\)) " +    /* ignore: GCC version information */
+-            "(#\\d+) " +              /* group 3: "#1" */
++            "(#\\d+) " +              /* group 4: "#1" */
+             "(?:.*?)?" +              /* ignore: optional SMP, PREEMPT, and any CONFIG_FLAGS */
+-            "((Sun|Mon|Tue|Wed|Thu|Fri|Sat).+)"; /* group 4: "Thu Jun 28 11:02:39 PDT 2012" */
++            "((Sun|Mon|Tue|Wed|Thu|Fri|Sat).+)"; /* group 5: "Thu Jun 28 11:02:39 PDT 2012" */
+ 
+         Matcher m = Pattern.compile(PROC_VERSION_REGEX).matcher(rawKernelVersion);
+         if (!m.matches()) {
+@@ -316,9 +317,8 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
+                     + " groups");
+             return "Unavailable";
+         }
+-        return m.group(1) + "\n" +                 // 3.0.31-g6fb96c9
+-            m.group(2) + " " + m.group(3) + "\n" + // x@y.com #1
+-            m.group(4);                            // Thu Jun 28 11:02:39 PDT 2012
++        return m.group(1) + "\n" +                 // 3.0.31
++            m.group(5);                            // Thu Jun 28 11:02:39 PDT 2012
+     }
+ 
+     /**
