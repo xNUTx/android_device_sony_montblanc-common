@@ -1,3 +1,7 @@
+# Build info
+ro.build.user=AOSX
+ro.build.host=Linux
+
 # System generic configuration
 sys.mem.max_hidden_apps=5
 
