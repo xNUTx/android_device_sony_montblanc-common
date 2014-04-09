@@ -124,7 +124,7 @@ diff --git a/frameworks/base/packages/Keyguard/res/values/dimens.xml b/packages/
 index 4866c1b..14dc9a7 100644
 --- a/frameworks/base/packages/Keyguard/res/values/dimens.xml
 +++ b/frameworks/base/packages/Keyguard/res/values/dimens.xml
-@@ -124,6 +124,9 @@
+@@ -119,6 +119,9 @@
      <!-- Height of the sliding KeyguardSecurityContainer (includes 2x keyguard_security_view_margin) -->
      <dimen name="keyguard_security_height">400dp</dimen>
  
@@ -134,7 +134,7 @@ index 4866c1b..14dc9a7 100644
      <!-- Margin around the various security views -->
      <dimen name="keyguard_security_view_margin">8dp</dimen>
  
-@@ -155,6 +158,9 @@
+@@ -150,6 +153,9 @@
      security mode. -->
      <dimen name="kg_small_widget_height">160dp</dimen>
  
