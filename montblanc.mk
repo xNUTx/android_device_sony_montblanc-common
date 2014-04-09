@@ -2,6 +2,9 @@
 $(call inherit-product, build/target/product/languages_full.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
+# gApps binaries
+$(call inherit-product-if-exists, vendor/google/gapps.mk)
+
 # Inherit from the vendor common montblanc definitions
 $(call inherit-product-if-exists, vendor/sony/montblanc-common/montblanc-common-vendor.mk)
 
