@@ -50,3 +50,22 @@ index 8b07208..fa34ff5 100644
          mNetworkInfo = new NetworkInfo(ConnectivityManager.TYPE_WIFI_P2P, 0, NETWORKTYPE, "");
  
          mP2pSupported = mContext.getPackageManager().hasSystemFeature(
+
+diff --git a/frameworks/base/data/etc/platform.xml b/frameworks/base/data/etc/platform.xml
+index 3857ec0..8475204 100644
+--- a/data/etc/platform.xml
++++ b/data/etc/platform.xml
+@@ -60,11 +60,13 @@
+
+     <permission name="android.permission.READ_EXTERNAL_STORAGE" >
+         <group gid="sdcard_r" />
++        <group gid="media_rw" />
+     </permission>
+
+     <permission name="android.permission.WRITE_EXTERNAL_STORAGE" >
+         <group gid="sdcard_r" />
+         <group gid="sdcard_rw" />
++        <group gid="media_rw" />
+     </permission>
+
+     <permission name="android.permission.ACCESS_ALL_EXTERNAL_STORAGE" >
