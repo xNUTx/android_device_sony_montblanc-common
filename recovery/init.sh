@@ -51,14 +51,15 @@ fi
 # kill the keycheck process
 busybox pkill -f "busybox cat ${BOOTREC_EVENT}"
 
-# unpack the ramdisk image
-# -u should be used to replace the static busybox with dynamically linked one.
-busybox cpio -ui < ${load_image}
-
 busybox umount /proc
 busybox umount /sys
 
 busybox rm -fr /dev/*
 busybox date >>boot.txt
+
+# unpack the ramdisk image
+# -u should be used to replace the static busybox with dynamically linked one.
+busybox cpio -ui < ${load_image}
+
 export PATH="${_PATH}"
 exec /init
