@@ -7,9 +7,10 @@ on early-init
     mkdir /mnt/shell 0700 shell shell
 
     # storage directories
-    mkdir /mnt/media_rw 0700 root root
+    mkdir /mnt/media_rw 0700 media_rw media_rw
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
     mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
+    chown root root /mnt/media_rw
 
     # fuse storage directories
     mkdir /storage 0751 root sdcard_r
