@@ -46,6 +46,23 @@ index f118cea..d5a8185 100644
  # Pick a reasonable string to use to identify files.
  ifneq "" "$(filter eng.%,$(BUILD_NUMBER))"
    # BUILD_NUMBER has a timestamp in it, which means that
+@@ -56,11 +56,11 @@ is_tests_build := $(filter tests,$(MAKECMDGOALS))
+ # e.g., "system/etc/file.xml".
+ # The filter part means "only eval the copy-one-file rule if this
+ # src:dest pair is the first one to match the same dest"
+-#$(1): the src:dest pair
+-define check-product-copy-files
+-$(if $(filter %.apk, $(1)),$(error \
+-    Prebuilt apk found in PRODUCT_COPY_FILES: $(1), use BUILD_PREBUILT instead!))
+-endef
++# $(1): the src:dest pair
++# define check-product-copy-files
++# $(if $(filter %.apk, $(1)),$(error \
++#    Prebuilt apk found in PRODUCT_COPY_FILES: $(1), use BUILD_PREBUILT instead!))
++# endef
+ # filter out the duplicate <source file>:<dest file> pairs.
+ unique_product_copy_files_pairs :=
+ $(foreach cf,$(PRODUCT_COPY_FILES), \
 @@ -416,6 +454,10 @@ ifdef BOARD_KERNEL_PAGESIZE
    INTERNAL_BOOTIMAGE_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
  endif
