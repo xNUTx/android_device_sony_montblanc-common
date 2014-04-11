@@ -81,9 +81,7 @@ PRODUCT_PACKAGES += libaudioparameter
 PRODUCT_PACKAGES += \
        hostapd_cli \
        hostapd
-      
-# Dbus
-PRODUCT_PACKAGES += libdbus
+
        
 # lib_net_iface_cmd
 PRODUCT_PACKAGES += libnetcmdiface
@@ -93,12 +91,6 @@ PRODUCT_PACKAGES += libasound
 
 #FM Radio
 # We must adapt Qualcomm FM Radio app
-
-# File Manager
-PRODUCT_PACKAGES += CMFileManager
-
-# Torch
-PRODUCT_PACKAGES += Torch
 
 # Misc
 PRODUCT_PACKAGES += com.android.future.usb.accessory
