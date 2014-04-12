@@ -48,8 +48,6 @@ on init
     # ...but make it a symlink so that sysmon may use it also
     symlink /dev/socket /tmp
 
-    mkdir /modemfs 0771 system system
-
     # make files in /sys/ non-writable for OTHERS
     chmod 220 /sys/ab8500_chargalg/chargalg
     chown system system /sys/ab8500_chargalg/chargalg
