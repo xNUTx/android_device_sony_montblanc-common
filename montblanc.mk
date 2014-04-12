@@ -89,7 +89,16 @@ PRODUCT_PACKAGES += libnetcmdiface
 # Libasound
 PRODUCT_PACKAGES += libasound
 
-#FM Radio
+# File Manager
+PRODUCT_PACKAGES += CMFileManager
+
+# Torch
+PRODUCT_PACKAGES += Torch
+
+# Apollo
+PRODUCT_PACKAGES += Apollo
+
+# FM Radio
 # We must adapt Qualcomm FM Radio app
 
 # Misc
