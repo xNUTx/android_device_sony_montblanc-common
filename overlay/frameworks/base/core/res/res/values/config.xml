@@ -77,7 +77,10 @@
     <string-array translatable="false" name="config_tether_bluetooth_regexs">
         <item>"bnep\\d"</item>
     </string-array>
-    
+
+    <!--  Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">3</integer>
+
     <!-- Component name of the service providing network location support. -->
     <string name="config_networkLocationProviderPackageName">com.google.android.location.NetworkLocationProvider</string>
 
