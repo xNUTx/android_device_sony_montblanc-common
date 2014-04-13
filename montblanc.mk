@@ -144,7 +144,7 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/install_wlan.sh:system/bin/install_wlan.sh \
         device/sony/montblanc-common/config/ste_modem.sh:system/etc/ste_modem.sh \
         device/sony/montblanc-common/config/gps.conf:system/etc/gps.conf \
-		device/sony/montblanc-common/config/apns-conf.xml:system/etc/apns-conf.xml
+	device/sony/montblanc-common/config/apns-conf.xml:system/etc/apns-conf.xml
 
 # Garbage Collector type
 PRODUCT_TAGS += dalvik.gc.type-precise
