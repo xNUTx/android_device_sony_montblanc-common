@@ -98,7 +98,9 @@ PRODUCT_PACKAGES += Torch
 # Music & DSP
 PRODUCT_PACKAGES += \
        Apollo \
-       DSPManager
+       DSPManager \
+       audio_effects.conf \
+       libcyanogen-dsp
 
 # FM Radio
 # We must adapt Qualcomm FM Radio app
