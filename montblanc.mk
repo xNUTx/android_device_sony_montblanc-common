@@ -95,8 +95,10 @@ PRODUCT_PACKAGES += CMFileManager
 # Torch
 PRODUCT_PACKAGES += Torch
 
-# Apollo
-PRODUCT_PACKAGES += Apollo
+# Music & DSP
+PRODUCT_PACKAGES += \
+       Apollo \
+       DSPManager
 
 # FM Radio
 # We must adapt Qualcomm FM Radio app
