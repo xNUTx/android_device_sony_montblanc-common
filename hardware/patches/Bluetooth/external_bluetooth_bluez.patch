@@ -81,8 +81,21 @@ index 5f4e70c..7e766ca 100644
 +LOCAL_MODULE:=libbluetooth
 +
 +include $(BUILD_SHARED_LIBRARY)
+diff --git a/external/bluetooth/bluez/lib/sdp.h b/external/bluetooth/bluez/lib/sdp.h
+index 34adf9a..73de6f9 100644
+--- a/external/bluetooth/bluez/lib/sdp.h
++++ b/external/bluetooth/bluez/lib/sdp.h
+@@ -32,7 +32,7 @@ extern "C" {
+ #endif
+ 
+ #include <stdint.h>
+-#include <bluetooth/bluetooth.h>
++#include "bluetooth.h"
+ 
+ #define SDP_UNIX_PATH "/var/run/sdp"
+ #define SDP_RESPONSE_TIMEOUT	20
 diff --git a/external/bluetooth/bluez/lib/sdp_lib.h b/external/bluetooth/bluez/lib/sdp_lib.h
-index 3ded393..5c37603 100644
+index 3ded393..b3d7d51 100644
 --- a/external/bluetooth/bluez/lib/sdp_lib.h
 +++ b/external/bluetooth/bluez/lib/sdp_lib.h
 @@ -28,8 +28,8 @@
@@ -96,21 +109,8 @@ index 3ded393..5c37603 100644
  
  #ifdef __cplusplus
  extern "C" {
-diff --git a/external/bluetooth/bluez/lib/sdp.h b/external/bluetooth/bluez/lib/sdp.h
-index 34adf9a..a2542cc 100644
---- a/external/bluetooth/bluez/lib/sdp.h
-+++ b/external/bluetooth/bluez/lib/sdp.h
-@@ -32,7 +32,7 @@ extern "C" {
- #endif
- 
- #include <stdint.h>
--#include <bluetooth/bluetooth.h>
-+#include "bluetooth.h"
- 
- #define SDP_UNIX_PATH "/var/run/sdp"
- #define SDP_RESPONSE_TIMEOUT	20
 diff --git a/external/bluetooth/bluez/lib/uuid.h b/external/bluetooth/bluez/lib/uuid.h
-index 237145b..7619119 100644
+index 237145b..7ba0685 100644
 --- a/external/bluetooth/bluez/lib/uuid.h
 +++ b/external/bluetooth/bluez/lib/uuid.h
 @@ -30,7 +30,7 @@ extern "C" {
@@ -252,3 +252,101 @@ index 4810a09..0ecfb23 100644
  
  #define HCI_UART_RAW_DEVICE	0
  #define HCI_UART_RESET_ON_INIT	1
+diff --git a/external/bluetooth/bluez/tools/hciattach_ath3k.c b/external/bluetooth/bluez/tools/hciattach_ath3k.c
+index 23208c6..07c13ac 100644
+--- a/external/bluetooth/bluez/tools/hciattach_ath3k.c
++++ b/external/bluetooth/bluez/tools/hciattach_ath3k.c
+@@ -33,9 +33,9 @@
+ #include <sys/param.h>
+ #include <sys/ioctl.h>
+ 
+-#include <bluetooth/bluetooth.h>
+-#include <bluetooth/hci.h>
+-#include <bluetooth/hci_lib.h>
++#include "bluetooth.h"
++#include "hci.h"
++#include "hci_lib.h"
+ 
+ #include "hciattach.h"
+ 
+diff --git a/external/bluetooth/bluez/tools/hciattach_intel.c b/external/bluetooth/bluez/tools/hciattach_intel.c
+index 749098e..9d5111e 100644
+--- a/external/bluetooth/bluez/tools/hciattach_intel.c
++++ b/external/bluetooth/bluez/tools/hciattach_intel.c
+@@ -35,9 +35,9 @@
+ #include <sys/ioctl.h>
+ #include <time.h>
+ 
+-#include <bluetooth/bluetooth.h>
+-#include <bluetooth/hci.h>
+-#include <bluetooth/hci_lib.h>
++#include "bluetooth.h"
++#include "hci.h"
++#include "hci_lib.h"
+ 
+ #include "hciattach.h"
+ 
+diff --git a/external/bluetooth/bluez/tools/hciattach_qualcomm.c b/external/bluetooth/bluez/tools/hciattach_qualcomm.c
+index 0e02e1e..0da8c40 100644
+--- a/external/bluetooth/bluez/tools/hciattach_qualcomm.c
++++ b/external/bluetooth/bluez/tools/hciattach_qualcomm.c
+@@ -41,9 +41,9 @@
+ #include <sys/param.h>
+ #include <sys/ioctl.h>
+ 
+-#include <bluetooth/bluetooth.h>
+-#include <bluetooth/hci.h>
+-#include <bluetooth/hci_lib.h>
++#include "bluetooth.h"
++#include "hci.h"
++#include "hci_lib.h"
+ 
+ #include "hciattach.h"
+ 
+diff --git a/external/bluetooth/bluez/tools/hciattach_st.c b/external/bluetooth/bluez/tools/hciattach_st.c
+index dbb7c47..a46a0c5 100644
+--- a/external/bluetooth/bluez/tools/hciattach_st.c
++++ b/external/bluetooth/bluez/tools/hciattach_st.c
+@@ -35,7 +35,7 @@
+ #include <dirent.h>
+ #include <sys/param.h>
+ 
+-#include <bluetooth/bluetooth.h>
++#include "bluetooth.h"
+ 
+ #include "hciattach.h"
+ 
+diff --git a/external/bluetooth/bluez/tools/hciattach_ti.c b/external/bluetooth/bluez/tools/hciattach_ti.c
+index 8322b45..64bc618 100644
+--- a/external/bluetooth/bluez/tools/hciattach_ti.c
++++ b/external/bluetooth/bluez/tools/hciattach_ti.c
+@@ -37,9 +37,9 @@
+ #include <sys/param.h>
+ #include <sys/ioctl.h>
+ 
+-#include <bluetooth/bluetooth.h>
+-#include <bluetooth/hci.h>
+-#include <bluetooth/hci_lib.h>
++#include "bluetooth.h"
++#include "hci.h"
++#include "hci_lib.h"
+ 
+ #include "hciattach.h"
+ 
+diff --git a/external/bluetooth/bluez/tools/hciattach_tialt.c b/external/bluetooth/bluez/tools/hciattach_tialt.c
+index c3caa49..99d962b 100644
+--- a/external/bluetooth/bluez/tools/hciattach_tialt.c
++++ b/external/bluetooth/bluez/tools/hciattach_tialt.c
+@@ -40,9 +40,9 @@
+ #include <sys/param.h>
+ #include <sys/ioctl.h>
+ 
+-#include <bluetooth/bluetooth.h>
+-#include <bluetooth/hci.h>
+-#include <bluetooth/hci_lib.h>
++#include "bluetooth.h"
++#include "hci.h"
++#include "hci_lib.h"
+ 
+ #include "hciattach.h"
+ 
