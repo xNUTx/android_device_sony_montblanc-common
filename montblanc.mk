@@ -133,13 +133,11 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/init.environ.rc:root/init.environ.rc \
         device/sony/montblanc-common/config/init.st-ericsson.rc:root/init.st-ericsson.rc \
         device/sony/montblanc-common/config/ueventd.st-ericsson.rc:root/ueventd.st-ericsson.rc \
-        device/sony/montblanc-common/config/usbid_init.sh:system/bin/usbid_init.sh \
         external/koush/Superuser/init.superuser.rc:root/init.superuser.rc
 
 # Post recovery script
 PRODUCT_COPY_FILES += \
-        device/sony/montblanc-common/recovery/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh \
-        device/sony/montblanc-common/config/modelid_cfg.sh:system/bin/modelid_cfg.sh
+        device/sony/montblanc-common/recovery/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh
 
 # Hardware configuration scripts
 PRODUCT_COPY_FILES += \
