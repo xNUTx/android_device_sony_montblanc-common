@@ -59,28 +59,32 @@ index 5f4e70c..7e766ca 100644
 +LOCAL_MODULE:=libbluetooth
 +
 +include $(BUILD_SHARED_LIBRARY)
-diff --git a/external/bluetooth/bluez/android/ppoll.h b/external/bluetooth/bluez/android/ppoll.h
-new file mode 100644
-index 0000000..0b758bd
---- /dev/null
-+++ b/external/bluetooth/bluez/android/ppoll.h
-@@ -0,0 +1,16 @@
-+#ifdef ppoll
-+#undef ppoll
-+#endif
-+
-+#define ppoll compat_ppoll
-+
-+static inline int compat_ppoll(struct pollfd *fds, nfds_t nfds,
-+                const struct timespec *timeout, const sigset_t *sigmask)
-+{
-+        if (timeout == NULL)
-+                return poll(fds, nfds, -1);
-+        else if (timeout->tv_sec == 0)
-+                return poll(fds, nfds, 500);
-+        else
-+                return poll(fds, nfds, timeout->tv_sec * 1000);
-+}
+diff --git a/external/bluetooth/bluez/lib/sdp.h b/external/bluetooth/bluez/lib/sdp.h
+index 34adf9a..a2542cc 100644
+--- a/external/bluetooth/bluez/lib/sdp.h
++++ b/external/bluetooth/bluez/lib/sdp.h
+@@ -32,7 +32,7 @@ extern "C" {
+ #endif
+ 
+ #include <stdint.h>
+-#include <bluetooth/bluetooth.h>
++#include <bluetooth.h>
+ 
+ #define SDP_UNIX_PATH "/var/run/sdp"
+ #define SDP_RESPONSE_TIMEOUT	20
+diff --git a/external/bluetooth/bluez/lib/uuid.h b/external/bluetooth/bluez/lib/uuid.h
+index 237145b..7619119 100644
+--- a/external/bluetooth/bluez/lib/uuid.h
++++ b/external/bluetooth/bluez/lib/uuid.h
+@@ -30,7 +30,7 @@ extern "C" {
+ #endif
+ 
+ #include <stdint.h>
+-#include <bluetooth/bluetooth.h>
++#include <bluetooth.h>
+ 
+ #define GENERIC_AUDIO_UUID	"00001203-0000-1000-8000-00805f9b34fb"
+ 
 diff --git a/external/bluetooth/bluez/tools/hciattach.c b/external/bluetooth/bluez/tools/hciattach.c
 index 1904ac5..6ad0749 100644
 --- a/external/bluetooth/bluez/tools/hciattach.c
@@ -211,4 +215,3 @@ index 4810a09..0ecfb23 100644
  
  #define HCI_UART_RAW_DEVICE	0
  #define HCI_UART_RESET_ON_INIT	1
-
