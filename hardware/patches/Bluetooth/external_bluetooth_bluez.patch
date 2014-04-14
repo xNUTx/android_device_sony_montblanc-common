@@ -81,10 +81,10 @@ index 5f4e70c..7e766ca 100644
 +LOCAL_MODULE:=libbluetooth
 +
 +include $(BUILD_SHARED_LIBRARY)
-diff --git a/lib/sdp_lib.h b/lib/sdp_lib.h
+diff --git a/external/bluetooth/bluez/lib/sdp_lib.h b/external/bluetooth/bluez/lib/sdp_lib.h
 index 3ded393..5c37603 100644
---- a/lib/sdp_lib.h
-+++ b/lib/sdp_lib.h
+--- a/external/bluetooth/bluez/lib/sdp_lib.h
++++ b/external/bluetooth/bluez/lib/sdp_lib.h
 @@ -28,8 +28,8 @@
  #define __SDP_LIB_H
  
