@@ -91,8 +91,8 @@ index 3ded393..5c37603 100644
  #include <sys/socket.h>
 -#include <bluetooth/bluetooth.h>
 -#include <bluetooth/hci.h>
-+#include <bluetooth.h>
-+#include <hci.h>
++#include "bluetooth.h"
++#include "hci.h"
  
  #ifdef __cplusplus
  extern "C" {
@@ -105,7 +105,7 @@ index 34adf9a..a2542cc 100644
  
  #include <stdint.h>
 -#include <bluetooth/bluetooth.h>
-+#include <bluetooth.h>
++#include "bluetooth.h"
  
  #define SDP_UNIX_PATH "/var/run/sdp"
  #define SDP_RESPONSE_TIMEOUT	20
@@ -118,7 +118,7 @@ index 237145b..7619119 100644
  
  #include <stdint.h>
 -#include <bluetooth/bluetooth.h>
-+#include <bluetooth.h>
++#include "bluetooth.h"
  
  #define GENERIC_AUDIO_UUID	"00001203-0000-1000-8000-00805f9b34fb"
  
