@@ -200,6 +200,20 @@ index fce7a98..2dcca63 100644
 +  <java-symbol type="string" name="global_action_reboot" />
 +
  </resources>
+diff --git a/frameworks/base/core/res/res/values/strings.xml b/frameworks/base/core/res/res/values/strings.xml
+index 9025400..514b5ef 100644
+--- a/frameworks/base/core/res/res/values/strings.xml
++++ b/frameworks/base/core/res/res/values/strings.xml
+@@ -3418,6 +3418,9 @@
+     <!-- SIM swap and device reboot Dialog --> <skip />
+     <!-- See SIM_REMOVED_DIALOG.  This is the title of that dialog. -->
+     <string name="sim_removed_title">SIM card removed</string>
++    <!-- advance reboot -->
++    <string name="global_action_reboot">Reboot</string>
++
+     <!-- See SIM_REMOVED_DIALOG.  This is the message of that dialog. -->
+     <string name="sim_removed_message">The mobile network will be unavailable until you restart with a valid SIM card inserted.</string>
+     <!-- See SIM_REMOVED_DIALOG.  This is the button of that dialog. -->
 diff --git a/frameworks/base/policy/src/com/android/internal/policy/impl/GlobalActions.java b/frameworks/base/policy/src/com/android/internal/policy/impl/GlobalActions.java
 index 884f57e..b015671 100644
 --- a/frameworks/base/policy/src/com/android/internal/policy/impl/GlobalActions.java
