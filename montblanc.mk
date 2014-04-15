@@ -9,7 +9,7 @@ $(call inherit-product-if-exists, vendor/google/gapps.mk)
 $(call inherit-product-if-exists, vendor/sony/montblanc-common/montblanc-common-vendor.mk)
 
 # Common montblanc headers
-#TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
+TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
 
 # Common montblanc settings overlays
 DEVICE_PACKAGE_OVERLAYS += device/sony/montblanc-common/overlay
