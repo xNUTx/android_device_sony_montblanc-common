@@ -17,10 +17,10 @@ Change-Id: I45aafbb7d069feb2266781520a6b5a336bf13046
  /external/chromium_org/third_party/openssl/ssl/t1_lib.c  | 14 +++++++++-----
  2 files changed, 27 insertions(+), 13 deletions(-)
 
-diff --git a/external/chromium_org/third_party/openssl/ssl/d1_both.c b/external/chromium_org/third_party/openssl/ssl/d1_both.c
+diff --git a/external/chromium_org/third_party/openssl/openssl/ssl/d1_both.c b/external/chromium_org/third_party/openssl/openssl/ssl/d1_both.c
 index de8bab8..436ab67 100644
---- a/external/chromium_org/third_party/openssl/ssl/d1_both.c
-+++ b/external/chromium_org/third_party/openssl/ssl/d1_both.c
+--- a/external/chromium_org/third_party/openssl/openssl/ssl/d1_both.c
++++ b/external/chromium_org/third_party/openssl/openssl/ssl/d1_both.c
 @@ -1452,26 +1452,36 @@ dtls1_process_heartbeat(SSL *s)
  	unsigned int payload;
  	unsigned int padding = 16; /* Use minimum padding */
@@ -78,10 +78,10 @@ index de8bab8..436ab67 100644
  				s, s->msg_callback_arg);
  
  		OPENSSL_free(buffer);
-diff --git a/external/chromium_org/third_party/openssl/ssl/t1_lib.c b/external/chromium_org/third_party/openssl/ssl/t1_lib.c
+diff --git a/external/chromium_org/third_party/openssl/openssl/ssl/t1_lib.c b/external/chromium_org/third_party/openssl/openssl/ssl/t1_lib.c
 index f447f22..afc5181 100644
---- a/external/chromium_org/third_party/openssl/ssl/t1_lib.c
-+++ b/external/chromium_org/third_party/openssl/ssl/t1_lib.c
+--- a/external/chromium_org/third_party/openssl/openssl/ssl/t1_lib.c
++++ b/external/chromium_org/third_party/openssl/openssl/ssl/t1_lib.c
 @@ -2494,16 +2494,20 @@ tls1_process_heartbeat(SSL *s)
  	unsigned int payload;
  	unsigned int padding = 16; /* Use minimum padding */
