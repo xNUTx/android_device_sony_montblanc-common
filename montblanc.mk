@@ -2,6 +2,9 @@
 $(call inherit-product, build/target/product/languages_full.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
+# ste-sony
+$(call inherit-product, hardware/ste-sony/common.mk)
+
 # gApps binaries
 $(call inherit-product-if-exists, vendor/google/gapps.mk)
 
@@ -54,15 +57,6 @@ PRODUCT_PACKAGES += \
         make_ext4fs \
         setup_fs \
         e2fsck
-
-# Lights HAL library
-PRODUCT_PACKAGES += lights.montblanc
-
-# b2r2lib
-PRODUCT_PACKAGES += libblt_hw
- 
-# libomxil-bellagio
-PRODUCT_PACKAGES += libomxil-bellagio
    
 # libtinyalsa & audio.usb.default
 PRODUCT_PACKAGES += \
@@ -71,9 +65,6 @@ PRODUCT_PACKAGES += \
        audio_policy.default \
        audio.usb.default
        
-# WiFi config utility
-PRODUCT_PACKAGES += iw
-       
 # libaudioparameter
 PRODUCT_PACKAGES += libaudioparameter
 
@@ -81,13 +72,6 @@ PRODUCT_PACKAGES += libaudioparameter
 PRODUCT_PACKAGES += \
        hostapd_cli \
        hostapd
-
-       
-# lib_net_iface_cmd
-PRODUCT_PACKAGES += libnetcmdiface
-
-# Libasound
-PRODUCT_PACKAGES += libasound
 
 # File Manager
 PRODUCT_PACKAGES += CMFileManager
