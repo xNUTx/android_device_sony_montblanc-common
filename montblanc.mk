@@ -1,6 +1,5 @@
 # Inherit from AOSP
 $(call inherit-product, build/target/product/languages_full.mk)
-$(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 # ste-sony
 $(call inherit-product, hardware/ste-sony/common.mk)
