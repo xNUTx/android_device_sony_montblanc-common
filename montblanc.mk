@@ -72,9 +72,6 @@ PRODUCT_PACKAGES += \
        hostapd_cli \
        hostapd
 
-# File Manager
-PRODUCT_PACKAGES += CMFileManager
-
 # Torch
 PRODUCT_PACKAGES += Torch
 
