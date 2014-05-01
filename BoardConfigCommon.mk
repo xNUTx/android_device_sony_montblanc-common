@@ -10,7 +10,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc
 COMMON_GLOBAL_CFLAGS += -DSTE_HARDWARE
 BOARD_USES_STE_HARDWARE := true
 
-
 # Architecture
 TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
@@ -22,10 +21,8 @@ TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-
 # RIL implementation
 BOARD_RIL_CLASS := ../../../device/sony/montblanc-common/telephony-common/
-
 
 # Kernel information
 BOARD_KERNEL_ADDRESS := 0x00008000
@@ -37,10 +34,8 @@ BOARD_RECOVERY_BASE := 0x40200000
 TARGET_KERNEL_SOURCE := kernel/sony/u8500
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7
 
-
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-
 
 # Audio
 COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB -DMR1_AUDIO_BLOB -DSTE_AUDIO
@@ -55,24 +50,23 @@ USES_TI_MAC80211 := true
 ANDROID_P2P := true
 COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211 -DANDROID_P2P
 
-
 # Camera
 COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB
 USE_CAMERA_STUB := true
-
 
 # Graphics
 BOARD_EGL_CFG := device/sony/montblanc-common/config/egl.cfg
 BOARD_EGL_NEEDS_LEGACY_FB := true
 USE_OPENGL_RENDERER := true
 COMMON_GLOBAL_CFLAGS += -DEGL_NEEDS_FNW -DBOARD_EGL_NEEDS_LEGACY_FB
+BOARD_HAVE_PIXEL_FORMAT_INFO := true
 
 # Superuser
 SUPERUSER_EMBEDDED := true
 
 # Misc
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
-BOARD_HAVE_PIXEL_FORMAT_INFO := true
+AOSX_VERSION := 1
 
 # FM Radio
 COMMON_GLOBAL_CFLAGS += -DAUDIO_EXTN_FM_ENABLED
@@ -83,12 +77,10 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.montblanc
 # Lights
 TARGET_PROVIDES_LIBLIGHTS := true
 
-
 # Custom boot
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/montblanc-common/custombootimg.mk
 TARGET_PROVIDES_INIT_RC := true
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/sony/montblanc-common/releasetools/semc_ota_from_target_files
-
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x01000000
@@ -100,7 +92,6 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1056964608
 BOARD_USERDATA_PARTITION_SIZE := 2147483648
 BOARD_VOLD_MAX_PARTITIONS := 16
 TARGET_USERIMAGES_USE_EXT4 := true
-
 
 # Recovery
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
@@ -118,7 +109,6 @@ TW_HAS_NO_RECOVERY_PARTITION := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
-
 
 # System proprieties
 TARGET_SYSTEM_PROP := device/sony/montblanc-common/system.prop
