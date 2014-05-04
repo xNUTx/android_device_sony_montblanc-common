@@ -93,6 +93,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_RECOVERY_PRE_COMMAND := "/system/bin/touch /cache/recovery/boot; /system/bin/sync;"
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"lucidaconsole_10x18.h\"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/sony/montblanc-common/recovery/recovery-keys.c
+BOARD_HAS_SDCARD_INTERNAL := true
 BOARD_USES_MMCUTILS := true
 
 #CWM Recovery TOUCH (All Rights Reserved By munjeni)
