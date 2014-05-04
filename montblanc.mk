@@ -10,9 +10,6 @@ $(call inherit-product-if-exists, vendor/sony/montblanc-common/montblanc-common-
 # Common montblanc headers
 TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
 
-# Common montblanc settings overlays
-DEVICE_PACKAGE_OVERLAYS += device/sony/montblanc-common/overlay
-
 # Common montblanc features
 PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
