@@ -1,7 +1,6 @@
 # for cwm touch only
 
 PRODUCT_COPY_FILES += \
-    device/sony/montblanc-common/recovery/res/images/stitch_go.png:recovery/root/res/images/stitch_go.png \
     device/sony/montblanc-common/recovery/res/images/a0.png:recovery/root/res/images/a0.png \
     device/sony/montblanc-common/recovery/res/images/a1.png:recovery/root/res/images/a1.png \
     device/sony/montblanc-common/recovery/res/images/a2.png:recovery/root/res/images/a2.png \
