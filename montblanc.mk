@@ -4,9 +4,6 @@ $(call inherit-product, build/target/product/languages_full.mk)
 # ste-sony
 $(call inherit-product, hardware/ste-sony/common.mk)
 
-# gApps binaries
-$(call inherit-product-if-exists, vendor/google/gapps.mk)
-
 # Inherit from the vendor common montblanc definitions
 $(call inherit-product-if-exists, vendor/sony/montblanc-common/montblanc-common-vendor.mk)
 
@@ -48,9 +45,6 @@ PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
         device/sony/montblanc-common/config/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf
         
-# KitKat Launcher
-PRODUCT_PACKAGES += Launcher3        
-
 # Filesystem management tools
 PRODUCT_PACKAGES += \
         make_ext4fs \
@@ -72,21 +66,9 @@ PRODUCT_PACKAGES += \
        hostapd_cli \
        hostapd
 
-# File Manager
-PRODUCT_PACKAGES += CMFileManager
-
-# Torch
-PRODUCT_PACKAGES += Torch
-
-# Music & DSP
+# OmniTorch
 PRODUCT_PACKAGES += \
-       Apollo \
-       DSPManager \
-       audio_effects.conf \
-       libcyanogen-dsp
-
-# FM Radio
-# We must adapt Qualcomm FM Radio app
+    OmniTorch
 
 # Misc
 PRODUCT_PACKAGES += com.android.future.usb.accessory
