@@ -10,6 +10,9 @@ $(call inherit-product-if-exists, vendor/sony/montblanc-common/montblanc-common-
 # Common montblanc headers
 TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
 
+# Call recovery.mk
+$(call inherit-product-if-exists, device/sony/montblanc-common/recovery/recovery.mk)
+
 # Common montblanc features
 PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
