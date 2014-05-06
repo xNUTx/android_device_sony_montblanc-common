@@ -57,6 +57,9 @@ PRODUCT_PACKAGES += \
        audio_policy.default \
        audio.usb.default
        
+# Torch
+PRODUCT_PACKAGES += Torch
+
 # libaudioparameter
 PRODUCT_PACKAGES += libaudioparameter
 
