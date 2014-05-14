@@ -4,6 +4,9 @@ sys.mem.max_hidden_apps=5
 # Wireless
 wifi.interface=wlan0
 
+#dvm
+dalvik.vm.dexopt-data-only=1
+
 # USB
 persist.sys.usb.config=mtp
 
