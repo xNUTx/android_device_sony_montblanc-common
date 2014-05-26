@@ -48,7 +48,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
         make_ext4fs \
         setup_fs \
-        e2fsck
+        e2fsck \
+	libmake_f2fs \
+	mkfs.f2fs \
+	libfsck_f2fs \
+	fsck.f2fs
+	
    
 # libtinyalsa & audio.usb.default
 PRODUCT_PACKAGES += \
