@@ -1,11 +1,16 @@
 LOCAL_PATH := $(call my-dir)
 
+BOOTREC_DEVICE := device/sony/$(TARGET_DEVICE)/config/bootrec-device
+BOOTREC_LED := device/sony/$(TARGET_DEVICE)/config/bootrec-led
+
 INSTALLED_BOOTIMAGE_TARGET := $(PRODUCT_OUT)/boot.img
 $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(recovery_ramdisk) $(INSTALLED_RAMDISK_TARGET) $(PRODUCT_OUT)/utilities/busybox $(MKBOOTIMG) $(MINIGZIP) $(INTERNAL_BOOTIMAGE_FILES)
 	$(call pretty,"Boot image: $@")
 
 	$(hide) mkdir -p $(PRODUCT_OUT)/combinedroot
 	$(hide) cp -R $(PRODUCT_OUT)/root/* $(PRODUCT_OUT)/combinedroot/
+	$(hide) cp $(BOOTREC_DEVICE) $(PRODUCT_OUT)/combinedroot/sbin/
+	$(hide) cp $(BOOTREC_LED) $(PRODUCT_OUT)/combinedroot/sbin/
 	$(hide) cp -R $(PRODUCT_OUT)/recovery/root/sbin/* $(PRODUCT_OUT)/combinedroot/sbin/
 	$(hide) cp -R $(PRODUCT_OUT)/../../../../device/sony/montblanc-common/config/default.prop $(PRODUCT_OUT)/combinedroot/
 	$(hide) cp -R $(PRODUCT_OUT)/../../../../device/sony/montblanc-common/config/init.environ.rc $(PRODUCT_OUT)/combinedroot/
