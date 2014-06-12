@@ -1,5 +1,5 @@
 # System generic configuration
-sys.sysctl.extra_free_kbytes property=1024
+sys.sysctl.extra_free_kbytes=1024
 
 # Wireless
 wifi.interface=wlan0
