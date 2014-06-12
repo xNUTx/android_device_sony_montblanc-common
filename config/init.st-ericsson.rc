@@ -92,6 +92,7 @@ on fs
 #    mount vfat /dev/block/mmcblk0p14 /sde  rw wait
 
     mount_all fstab.st-ericsson
+    swapon_all fstab.st-ericsson
 
     # recovery must start from here because system partition is
     # sometimes busy and fail to unmount trought bootrec!
