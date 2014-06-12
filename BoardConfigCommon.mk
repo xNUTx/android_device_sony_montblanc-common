@@ -106,5 +106,10 @@ COMMON_GLOBAL_CFLAGS += -DXPERIA_CWM_TOUCH
 #CWM recovery fix
 RECOVERY_FSTAB_VERSION := 2
 
+# Bootanimation
+TARGET_BOOTANIMATION_PRELOAD := true
+TARGET_BOOTANIMATION_TEXTURE_CACHE := true
+TARGET_BOOTANIMATION_USE_RGB565 := true
+
 # System proprieties
 TARGET_SYSTEM_PROP := device/sony/montblanc-common/system.prop
