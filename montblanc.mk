@@ -77,7 +77,9 @@ PRODUCT_PACKAGES += \
 # We must adapt Qualcomm FM Radio app
 
 # Misc
-PRODUCT_PACKAGES += com.android.future.usb.accessory
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory \
+    PhotoTable
 
 # BlueZ
 PRODUCT_PACKAGES += \
