@@ -52,8 +52,9 @@ PRODUCT_PACKAGES += \
 	libmake_f2fs \
 	mkfs.f2fs \
 	libfsck_f2fs \
-	fsck.f2fs
-	
+	fsck.f2fs \
+	libfibmap_f2fs \
+	fibmap.f2fs 
    
 # libtinyalsa & audio.usb.default
 PRODUCT_PACKAGES += \
