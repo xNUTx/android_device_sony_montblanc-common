@@ -400,6 +400,9 @@ on boot
     # STE: Enable wide-band speech for Bluetooth
     setprop bt.hfp.wideband 1
 
+    # Kernel Samepage Merging (KSM)
+    write /sys/kernel/mm/ksm/run 1
+
 # init shrm net device required for Phonet communication with Modem
 service shrm-netdev /system/bin/ifconfig shrm0 up
     class modem-u8500
