@@ -1,5 +1,6 @@
 # System generic configuration
 sys.mem.max_hidden_apps=5
+sys.sysctl.extra_free_kbytes property=1024
 
 # Wireless
 wifi.interface=wlan0
