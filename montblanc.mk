@@ -10,9 +10,6 @@ $(call inherit-product-if-exists, vendor/sony/montblanc-common/montblanc-common-
 # Common montblanc headers
 TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
 
-# Call recovery.mk
-$(call inherit-product-if-exists, device/sony/montblanc-common/recovery/recovery.mk)
-
 # Common montblanc features
 PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
@@ -49,11 +46,8 @@ PRODUCT_PACKAGES += \
         make_ext4fs \
         setup_fs \
         e2fsck \
-	libmake_f2fs \
 	mkfs.f2fs \
-	libfsck_f2fs \
 	fsck.f2fs \
-	libfibmap_f2fs \
 	fibmap.f2fs 
    
 # libtinyalsa & audio.usb.default
@@ -111,7 +105,6 @@ PRODUCT_COPY_FILES += \
 # Post recovery script
 PRODUCT_COPY_FILES += \
         device/sony/montblanc-common/recovery/bootrec:root/sbin/bootrec \
-        device/sony/montblanc-common/recovery/usbid_init.sh:root/sbin/usbid_init.sh \
         device/sony/montblanc-common/recovery/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh
 
 # Hardware configuration scripts
