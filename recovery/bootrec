@@ -24,7 +24,7 @@ sleep 3
 # kill the keycheck process
 pkill -f "cat ${BOOTREC_EVENT}"
 
-if [ -s /dev/keycheck ]
+if [ -s /dev/keycheck ] || busybox grep -q warmboot=0x5502 /proc/cmdline
 then
 
   rm /init
