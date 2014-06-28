@@ -154,7 +154,7 @@ class EdifyGenerator(object):
     if fstab:
       p = fstab[mount_point]
       if p.fs_type == "f2fs":
-          self.script.append('run_program("mount", "-t", "auto", "%s", "%s");' %
+          self.script.append('run_program("/sbin/mount", "-t", "auto", "%s", "%s");' %
                              (p.device, p.mount_point))
       else:
           self.script.append('mount("%s", "%s", "%s", "%s");' %

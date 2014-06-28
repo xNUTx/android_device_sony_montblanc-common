@@ -7,7 +7,7 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_SPECIFIC_HEADER_PATH := device/sony/montblanc-common/include
 TARGET_SPECIFIC_HEADER_PATH += device/sony/montblanc-common/hardware
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun%d/file"
-COMMON_GLOBAL_CFLAGS += -DSTE_HARDWARE
+COMMON_GLOBAL_CFLAGS += -DSTE_HARDWARE -DUSE_F2FS
 BOARD_USES_STE_HARDWARE := true
 
 # Architecture
