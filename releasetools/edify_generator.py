@@ -153,14 +153,10 @@ class EdifyGenerator(object):
     fstab = self.info.get("fstab", None)
     if fstab:
       p = fstab[mount_point]
-      if p.fs_type == "f2fs":
-          self.script.append('run_program("/sbin/mount", "-t", "auto", "%s", "%s");' %
-                             (p.device, p.mount_point))
-      else:
-          self.script.append('mount("%s", "%s", "%s", "%s");' %
+      self.script.append('mount("%s", "%s", "%s", "%s");' %
                          (p.fs_type, common.PARTITION_TYPES[p.fs_type],
                           p.device, p.mount_point))
-          self.mounts.add(p.mount_point)
+      self.mounts.add(p.mount_point)
 
   def Unmount(self, mount_point):
     """Unmount the partiiton with the given mount_point."""
@@ -192,11 +188,7 @@ class EdifyGenerator(object):
     fstab = self.info.get("fstab", None)
     if fstab:
       p = fstab[partition]
-      if p.fs_type == "f2fs":
-          self.script.append('run_program("/sbin/mkfs.f2fs", "%s");' %
-                             (p.device))
-      else:
-          self.script.append('format("%s", "%s", "%s", "%s", "%s");' %
+      self.script.append('format("%s", "%s", "%s", "%s", "%s");' %
                          (p.fs_type, common.PARTITION_TYPES[p.fs_type],
                           p.device, p.length, p.mount_point))
 
