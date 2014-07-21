@@ -108,10 +108,5 @@ TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 
-# Bootanimation
-TARGET_BOOTANIMATION_PRELOAD := true
-TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-TARGET_BOOTANIMATION_USE_RGB565 := true
-
 # System proprieties
 TARGET_SYSTEM_PROP := device/sony/montblanc-common/system.prop
