@@ -4,9 +4,6 @@ sys.sysctl.extra_free_kbytes=1024
 # Wireless
 wifi.interface=wlan0
 
-#dvm
-dalvik.vm.dexopt-data-only=1
-
 # USB
 persist.sys.usb.config=mtp
 
