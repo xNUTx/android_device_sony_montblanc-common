@@ -59,6 +59,7 @@ PRODUCT_PACKAGES += \
        tinyalsa \
        libtinyalsa \
        audio_policy.default \
+       libaudio-resampler \
        audio.usb.default
        
 # Torch
