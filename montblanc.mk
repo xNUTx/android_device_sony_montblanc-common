@@ -89,6 +89,7 @@ PRODUCT_PACKAGES += \
         btmon \
         btproxy \
         audio.a2dp.default \
+        audio.sco.default \
         l2test \
         bluetoothd-snoop \
         init.bluetooth.rc \
