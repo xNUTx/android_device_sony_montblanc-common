@@ -22,6 +22,9 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 
+# RIL implementation
+BOARD_RIL_CLASS := ../../../device/sony/montblanc-common/telephony-common/
+
 # Kernel information
 BOARD_KERNEL_ADDRESS := 0x00008000
 BOARD_RAMDISK_ADDRESS := 0x01000000
