@@ -471,11 +471,6 @@ service init_ste-cg2900 /system/bin/hciattach -a 23 -n -s 115200 /dev/ttyAMA0 cg
 service init_ste-cw1200 /system/bin/install_wlan.sh
     disabled
     oneshot
-
-# Sony Illumination Service
-service illumination /system/bin/illumination_service
-    class main
-    user root
     
 on property:init.svc.bluetoothd=stopped
     write /sys/class/rfkill/rfkill1/state 0
