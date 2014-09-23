@@ -101,7 +101,6 @@ BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USES_MMCUTILS := true
 COMMON_GLOBAL_CFLAGS += -DXPERIA_TWRP_TOUCH
-TARGET_RECOVERY_INITRC := device/sony/montblanc-common/recovery/init.rc
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_INTERNAL_STORAGE_PATH := "/sdcard"
@@ -110,6 +109,8 @@ TW_HAS_NO_RECOVERY_PARTITION := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
+TW_INPUT_BLACKLIST := "lsm303dlhc_acc_lt\x0alsm303dlh_mag\x0al3g4200d_gyr"
+TW_INCLUDE_FB2PNG := true
 
 # System proprieties
 TARGET_SYSTEM_PROP := device/sony/montblanc-common/system.prop
