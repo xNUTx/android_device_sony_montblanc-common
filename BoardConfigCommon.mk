@@ -110,8 +110,6 @@ TW_HAS_NO_RECOVERY_PARTITION := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
-TW_INPUT_BLACKLIST := "lsm303dlhc_acc_lt\x0alsm303dlh_mag\x0al3g4200d_gyr"
-TW_INCLUDE_FB2PNG := true
 
 # System proprieties
 TARGET_SYSTEM_PROP := device/sony/montblanc-common/system.prop
